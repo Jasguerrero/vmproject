@@ -11,6 +11,10 @@ class Category extends Model
 
     public function dishes(){
         return $this->hasMany('App\Dish');
+    }
 
+    /** adminside **/
+    public function owner(){
+        return $this->belongsTo('App\User');
     }
 }

@@ -15,4 +15,9 @@ class Dish extends Model
     public function orders(){
         return $this -> hasMany('App\Order');
     }
+
+    /** adminside **/
+    public function owner(){
+        return $this->belongsTo('App\User');
+    }
 }

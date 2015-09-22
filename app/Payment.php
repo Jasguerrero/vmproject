@@ -12,4 +12,9 @@ class Payment extends Model
         'description_es',
         'description_en'
     ];
+
+    /** adminside **/
+    public function owner(){
+        return $this->belongsTo('App\User');
+    }
 }

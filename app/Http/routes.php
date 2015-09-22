@@ -21,7 +21,7 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
-
+/** AdminSide **/
 Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
     /* DISHES ROUTE -> Muestra todos los platillos */
     Route::get('dishes',[
@@ -41,7 +41,7 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
         'uses'  => 'DishController@store'
     ]);
 });
-
+/** AdminSide **/
 
 Route::get('orders',[
     'as' => 'order_path',
