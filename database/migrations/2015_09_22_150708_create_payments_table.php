@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatusesTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,8 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('statuses', function(Blueprint $table)
-        {
+        Schema::create('Payments', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->ondelete('cascade');
-
             $table->string('description_es');
             $table->string('description_en');
             $table->timestamps();
@@ -35,6 +27,6 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('statuses');
+        Schema::drop('payments');
     }
 }
