@@ -37,5 +37,10 @@ Route::get('orders',[
     'uses' => 'OrderController@index'
 ]);
 
+Route::get('masterpage', function(){
+
+return view('masterpage');
+
+});
 
 
