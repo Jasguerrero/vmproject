@@ -28,6 +28,7 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
     Route::resource('categories', 'CategoryController');
     Route::resource('statuses', 'StatusController');
     Route::resource('payments', 'PaymentController');
+
 });
 /** AdminSide **/
 
@@ -35,4 +36,6 @@ Route::get('orders',[
     'as' => 'order_path',
     'uses' => 'OrderController@index'
 ]);
+
+
 

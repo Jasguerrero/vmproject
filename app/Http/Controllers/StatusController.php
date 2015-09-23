@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Status;
 
 class StatusController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -16,6 +22,8 @@ class StatusController extends Controller
      */
     public function index()
     {
+        $statuses = Auth::user()->statuses()->get();
+        return view('statuses.all')->with('statuses',$statuses);
 
     }
 
@@ -26,7 +34,7 @@ class StatusController extends Controller
      */
     public function create()
     {
-        //
+        return view('statuses.create');
     }
 
     /**
@@ -37,7 +45,9 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newStatus = new Status($request->all());
+        Auth::user()->statuses()->save($newStatus);
+        return redirect('statuses');
     }
 
     /**
@@ -48,7 +58,9 @@ class StatusController extends Controller
      */
     public function show($id)
     {
-        //
+        $status = Status::find($id);
+      
+        return view('statuses.show')->with('status',$status);
     }
 
     /**
@@ -59,7 +71,8 @@ class StatusController extends Controller
      */
     public function edit($id)
     {
-        //
+         $status = Status::find($id);
+        return view('statuses.edit')->with('status',$status);
     }
 
     /**
@@ -71,7 +84,9 @@ class StatusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $status = Status::find($id);
+        $status->update($request->all());
+        return redirect('statuses');
     }
 
     /**
@@ -82,6 +97,8 @@ class StatusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $status = Status::find($id);
+        $status->delete();
+        return redirect('statuses');
     }
 }
