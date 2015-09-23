@@ -27,6 +27,7 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
     Route::resource('dishes', 'DishController');
     Route::resource('categories', 'CategoryController');
     Route::resource('statuses', 'StatusController');
+    Route::resource('payments', 'PaymentController');
 });
 /** AdminSide **/
 

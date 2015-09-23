@@ -2,17 +2,17 @@
 
 
 @section('content')
-    @if($categories != null)
-        <h1 class="page-heading">Categorias</h1>
+    @if($payments != null)
+        <h1 class="page-heading">Formas de pago</h1>
         <ul class="list-group">
-        @foreach($categories as $category)
+            @foreach($payments as $payment)
                 <li class="list-group-item">
-                    <span class="badge">{!! link_to('categories/' . $category->id ,'Ver',null) !!}</span>
-                    Número de categoria : {!! $category->id !!}
+                    <span class="badge">{!! link_to('payments/' . $payment->id ,'Ver',null) !!}</span>
+                    Número de categoria : {!! $payment->id !!}
                 </li>
-        @endforeach
+            @endforeach
         </ul>
-    @elseif(!$categories)
+    @elseif($payments == null)
         <div class="row">
             <div class="col-lg-12">
                 <div class="jumbotron">

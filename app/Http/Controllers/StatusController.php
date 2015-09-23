@@ -2,19 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PaymentRequest;
-use App\Payment;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
-class PaymentController extends Controller
+class StatusController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +16,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Auth::user()->payments()->get();
-        return view('payments.all')->with('payments',$payments);
+
     }
 
     /**
@@ -33,7 +26,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        return view('payments.create');
+        //
     }
 
     /**
@@ -42,11 +35,9 @@ class PaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PaymentRequest $request)
+    public function store(Request $request)
     {
-        $newPayment = new Payment($request->all());
-        Auth::user()->payments()->save($newPayment);
-        return redirect('payments');
+        //
     }
 
     /**
@@ -57,8 +48,7 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        $payment =  Payment::find($id);
-        return view('payments.show')->with('payment',$payment);
+        //
     }
 
     /**
@@ -69,8 +59,7 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        $payment =  Payment::find($id);
-        return view('payments.edit')->with('payment',$payment);
+        //
     }
 
     /**
@@ -80,11 +69,9 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PaymentRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $payment = Payment::find($id);
-        $payment->update($request->all());
-        return redirect('payments');
+        //
     }
 
     /**
@@ -95,8 +82,6 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        $payment = Payment::find($id);
-        $payment->delete();
-        return redirect('payments');
+        //
     }
 }
