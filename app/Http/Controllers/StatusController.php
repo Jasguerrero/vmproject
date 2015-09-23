@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PaymentRequest;
-use App\Payment;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Status;
 
-class PaymentController extends Controller
+class StatusController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +22,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Auth::user()->payments()->get();
-        return view('payments.all')->with('payments',$payments);
+        $statuses = Auth::user()->statuses()->get();
+        return view('statuses.all')->with('statuses',$statuses);
+
     }
 
     /**
@@ -33,7 +34,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        return view('payments.create');
+        return view('statuses.create');
     }
 
     /**
@@ -42,11 +43,11 @@ class PaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PaymentRequest $request)
+    public function store(Request $request)
     {
-        $newPayment = new Payment($request->all());
-        Auth::user()->payments()->save($newPayment);
-        return redirect('payments');
+        $newStatus = new Status($request->all());
+        Auth::user()->statuses()->save($newStatus);
+        return redirect('statuses');
     }
 
     /**
@@ -57,8 +58,8 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        $payment =  Payment::find($id);
-        return view('payments.show')->with('payment',$payment);
+        $status = Status::find($id);
+        return view('statuses.show')->with('status',$status);
     }
 
     /**
@@ -69,8 +70,8 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        $payment =  Payment::find($id);
-        return view('payments.edit')->with('payment',$payment);
+         $status = Status::find($id);
+        return view('statuses.edit')->with('status',$status);
     }
 
     /**
@@ -80,11 +81,11 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PaymentRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $payment = Payment::find($id);
-        $payment->update($request->all());
-        return redirect('payments');
+         $status = Status::find($id);
+        $status->update($request->all());
+        return redirect('statuses');
     }
 
     /**
@@ -95,8 +96,8 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        $payment = Payment::find($id);
-        $payment->delete();
-        return redirect('payments');
+        $status = Status::find($id);
+        $status->delete();
+        return redirect('statuses');
     }
 }

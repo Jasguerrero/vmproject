@@ -57,5 +57,8 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this -> hasMany('App\Payment');
     }
+    public function categories(){
+        return $this -> hasMany('App\Category');
+    }
     /** Admin dashboard methods  **/
 }

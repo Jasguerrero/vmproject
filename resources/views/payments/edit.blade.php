@@ -5,10 +5,9 @@
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
             @include('partials.errors')
-            <h1 class="page-heading">Ingresa nueva categoria</h1>
+            <h1 class="page-heading">Editar categoria</h1>
             <hr/>
-            <!-- {!! Form::open(['url' => 'ruta']) !!} ['url' => 'suggestions','files'=> true]-->
-            {!! Form::open(array('url' => 'categories')) !!}
+            {!! Form::model($payment,['method' => 'PATCH','action' => ['PaymentController@update',$payment->id]]) !!}
             <div class="form-group">
                 {!! Form::label('description_es','Descripción Español:')!!}
                 {!! Form::textarea('description_es',null,['class' => 'form-control']) !!}
@@ -18,7 +17,7 @@
                 {!! Form::textarea('description_en',null,['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
-                {!! Form::submit('crear',['class' => 'btn btn-primary form-control']) !!}
+                {!! Form::submit('Update',['class' => 'btn btn-primary form-control']) !!}
             </div>
             {!! Form::close() !!}
 

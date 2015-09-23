@@ -2,26 +2,26 @@
 
 
 @section('content')
-    @if($category != null)
-        <h1 class="page-heading">Número de categoría: {!! $category->id !!}</h1>
+    @if($status != null)
+        <h1 class="page-heading">Número de Status: {!! $status->id !!}</h1>
         <hr/>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Lenguajes Disponibles</h3>
             </div>
             <div class="panel-body">
-                {!! $category->description_es !!}
+                {!! $status->description_es !!}
                 <hr/>
-                {!! $category->description_en !!}
+                {!! $status->description_en !!}
             </div>
-            <div class="panel-footer">Fecha de Creación : {!! $category->created_at->format('Y-m-d') !!} </div>
+            <div class="panel-footer">Fecha de Creación : {!! $status->created_at->format('Y-m-d') !!} </div>
         </div>
         <div class="row">
             <div class="col-lg-6">
-                {!! link_to('categories/' .$category->id. '/edit', 'Update',array('class' => 'btn btn-lg btn-primary center-block')) !!}
+                {!! link_to('statuses/' .$status->id. '/edit', 'Update',array('class' => 'btn btn-lg btn-primary center-block')) !!}
             </div>
             <div class="col-lg-6">
-                {!! Form::open(['method' => 'DELETE', 'action' => ['CategoryController@destroy',$category->id]]) !!}
+                {!! Form::open(['method' => 'DELETE', 'action' => ['statusController@destroy',$status->id]]) !!}
 
                     {!! Form::submit('Delete',['class' => 'btn btn-lg btn-danger btn-block']) !!}
 
@@ -29,11 +29,11 @@
             </div>
         </div>
 
-    @elseif(!$category)
+    @elseif(!$status)
         <div class="row">
             <div class="col-lg-12">
                 <div class="jumbotron">
-                    <h1 class="page-heading">La categoria no está disponible</h1>
+                    <h1 class="page-heading">El status no está disponible</h1>
                 </div>
             </div>
         </div>

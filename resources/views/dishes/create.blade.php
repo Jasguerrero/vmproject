@@ -10,7 +10,7 @@
             <!-- {!! Form::open(['url' => 'ruta']) !!} ['url' => 'suggestions','files'=> true]-->
             {!! Form::open(array('url' => 'dishes')) !!}
             <div class="form-group">
-                {!! Form::label('position','Rol:')!!}
+                {!! Form::label('position','Categories:')!!}
                 {!! Form::select('position',['' => 'Selecciona un categoria','1'=>'Desayunos','2'=>'Comidas','3'=>'Cenas'],null,['class' => 'form-control input-sm']) !!}
             </div>
             <div class="form-group">
