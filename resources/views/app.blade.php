@@ -14,7 +14,6 @@
     <!-- Bootstrap Core CSS -->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-    <!--<link href="{{ asset('/css/clean-blog.css') }}" rel="stylesheet">-->
 
 
     <!-- Custom Fonts -->

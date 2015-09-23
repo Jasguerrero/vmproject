@@ -10,7 +10,7 @@
     <title>Domestic Worker</title>
 
 
-    <link href="{{ assest('/css/font-awesome.css') }}" rel="stylesheet" />
+
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">

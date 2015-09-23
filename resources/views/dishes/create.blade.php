@@ -8,10 +8,10 @@
             <h1 class="page-heading">Ingresa un platillo</h1>
             <hr/>
             <!-- {!! Form::open(['url' => 'ruta']) !!} ['url' => 'suggestions','files'=> true]-->
-            {!! Form::open(array('url' => 'dishes')) !!}
+            {!! Form::open(['url' => 'dishes','files'=> true]) !!}
             <div class="form-group">
-                {!! Form::label('position','Categories:')!!}
-                {!! Form::select('position',['' => 'Selecciona un categoria','1'=>'Desayunos','2'=>'Comidas','3'=>'Cenas'],null,['class' => 'form-control input-sm']) !!}
+                {!! Form::label('category_id','Categories:')!!}
+                {!! Form::select('category_id',['' => 'Selecciona un categoria','1'=>'Desayunos','2'=>'Comidas','3'=>'Cenas'],null,['class' => 'form-control input-sm']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('name','Nombre:')!!}
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('img_url','Ruta de la imagen:')!!}
-                {!! Form::input('url','img_url',null,['class' => 'form-control']) !!}
+                {!! Form::file('img_url') !!}
             </div>
             <div class="form-group">
                 {!! Form::label('price','Costo del Platillo:')!!}

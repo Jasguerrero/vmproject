@@ -25,9 +25,10 @@ class DishRequest extends Request
     {
         return [
             'name' => 'required|string',
+            'category_id' => 'required|integer',
             'description_es' => 'required',
             'description_en' => 'required',
-            'img_url' => 'required|url',
+            'img_url' => 'required|image',
             'price' => 'required|numeric',
             'measure' => 'required|numeric',
             'prep_time' => 'required|numeric'

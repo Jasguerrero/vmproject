@@ -4,24 +4,16 @@
 @section('content')
     @if($dishes != null)
         <h1 class="page-heading">Platillos</h1>
-        @foreach($dishes->chunk(5) as $Dishes)
-            <div class="row">
-                <div class="col-lg-12">
-                    @foreach($Dishes as $dish)
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">{!! $dish->name !!}</h3>
-                            </div>
-                            <div class="panel-body">
-                                {!! $dish->description_es !!}
-                            </div>
-                            <div class="panel-footer">{!! $dish->created_at->format('Y-m-d') !!}</div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        @endforeach
-        {!! $dishes->render() !!}
+        <hr/>
+        <ul class="list-group">
+            @foreach($dishes as $dish)
+                <li class="list-group-item">
+                    <span class="badge">{!! link_to('dishes/' . $dish->id ,'Ver',null) !!}</span>
+                    Nombre del platillo : {!! $dish->name !!} - Categoria : {!! \App\Category::find($dish->category_id)->description_es !!}
+                </li>
+            @endforeach
+        </ul>
+
     @elseif(!$dishes)
         <div class="row">
             <div class="col-lg-12">
