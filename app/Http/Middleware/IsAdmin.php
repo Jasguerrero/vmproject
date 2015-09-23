@@ -15,7 +15,7 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(!$request->user()->is_admin)
+        if($request->user()->type != 2)
             return redirect('orders');
         return $next($request);
     }

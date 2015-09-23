@@ -15,7 +15,8 @@ class CreateStatusesTable extends Migration
         Schema::create('statuses', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('description');
+            $table->string('description_es');
+            $table->string('description_en');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('statues');
+        Schema::drop('statuses');
     }
 }
