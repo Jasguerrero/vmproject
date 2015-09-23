@@ -14,8 +14,13 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
+
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->ondelete('cascade');
+
             $table->string('description_es');
             $table->string('description_en');
             $table->timestamps();
@@ -29,9 +34,6 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('payments',function(Blueprint $table){
-            $table->dropforeign('payments_user_id_foreign');
-            $table->dropColumn('user_id');
-        });
+        Schema::drop('payments');
     }
 }

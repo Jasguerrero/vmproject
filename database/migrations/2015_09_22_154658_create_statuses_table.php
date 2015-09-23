@@ -17,7 +17,10 @@ class CreateStatusesTable extends Migration
             $table->increments('id');
 
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->ondelete('cascade');
 
             $table->string('description_es');
             $table->string('description_en');
@@ -32,11 +35,6 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
-
-        Schema::table('statuses',function(Blueprint $table){
-            $table->dropforeign('statuses_user_id_foreign');
-            $table->dropColumn('user_id');
-        });
-
+        Schema::drop('statuses');
     }
 }

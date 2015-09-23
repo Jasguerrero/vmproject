@@ -30,9 +30,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('categories',function(Blueprint $table){
-            $table->dropforeign('categories_user_id_foreign');
-            $table->dropColumn('user_id');
-        });
+        Schema::drop('categories');
     }
 }
