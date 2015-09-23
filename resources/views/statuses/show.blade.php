@@ -2,6 +2,7 @@
 
 
 @section('content')
+   
     @if($status != null)
         <h1 class="page-heading">Número de Status: {!! $status->id !!}</h1>
         <hr/>
@@ -21,7 +22,7 @@
                 {!! link_to('statuses/' .$status->id. '/edit', 'Update',array('class' => 'btn btn-lg btn-primary center-block')) !!}
             </div>
             <div class="col-lg-6">
-                {!! Form::open(['method' => 'DELETE', 'action' => ['statusController@destroy',$status->id]]) !!}
+                {!! Form::open(['method' => 'DELETE', 'action' => ['StatusController@destroy',$status->id]]) !!}
 
                     {!! Form::submit('Delete',['class' => 'btn btn-lg btn-danger btn-block']) !!}
 

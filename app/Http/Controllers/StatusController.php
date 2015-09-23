@@ -59,6 +59,7 @@ class StatusController extends Controller
     public function show($id)
     {
         $status = Status::find($id);
+      
         return view('statuses.show')->with('status',$status);
     }
 
