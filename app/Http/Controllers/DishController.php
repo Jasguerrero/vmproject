@@ -34,7 +34,8 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view('dishes.create');
+        $categories = Category::all();
+        return view('dishes.create')->with('categories',$categories);
     }
 
     /**
@@ -70,8 +71,9 @@ class DishController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::all();
         $dish = Dish::find($id);
-        return view('dishes.edit')->with('dish',$dish);
+        return view('dishes.edit')->with(['dish' => $dish,'categories' => $categories]);
     }
 
     /**

@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
             $table->string('description_es');
             $table->string('description_en');
+            $table->string('img_url');
             $table->timestamps();
         });
     }

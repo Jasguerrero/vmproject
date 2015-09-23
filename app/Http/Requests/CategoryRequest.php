@@ -25,7 +25,8 @@ class CategoryRequest extends Request
     {
         return [
             'description_es' => 'required',
-            'description_en' => 'required'
+            'description_en' => 'required',
+            'img_url' => 'required|image'
         ];
     }
 }

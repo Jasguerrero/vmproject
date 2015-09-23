@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('measure','Cantidad del platillo:')!!}
-                {!! Form::input('number','measure',null,['class' => 'form-control']) !!}
+                {!! Form::input('text','measure',null,['class' => 'form-control']) !!}
             </div><div class="form-group">
                 {!! Form::label('prep_time','Tiempo de Preparación:')!!}
                 {!! Form::input('number','prep_time',null,['class' => 'form-control']) !!}

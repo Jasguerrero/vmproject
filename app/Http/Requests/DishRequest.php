@@ -30,7 +30,7 @@ class DishRequest extends Request
             'description_en' => 'required',
             'img_url' => 'required|image',
             'price' => 'required|numeric',
-            'measure' => 'required|numeric',
+            'measure' => 'required|string',
             'prep_time' => 'required|numeric'
         ];
     }
