@@ -14,6 +14,8 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
             $table->string('description_es');
             $table->string('description_en');
             $table->timestamps();
@@ -27,6 +29,9 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('categories');
+        Schema::table('categories',function(Blueprint $table){
+            $table->dropforeign('categories_user_id_foreign');
+            $table->dropColumn('user_id');
+        });
     }
 }

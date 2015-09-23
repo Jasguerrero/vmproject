@@ -15,6 +15,8 @@ class CreateDishesTable extends Migration
         Schema::create('dishes', function(Blueprint $table)
         {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->ondelete('cascade');
             $table->string('name');
@@ -38,6 +40,8 @@ class CreateDishesTable extends Migration
         Schema::table('dishes',function(Blueprint $table){
             $table->dropforeign('dishes_category_id_foreign');
             $table->dropColumn('category_id');
+            $table->dropforeign('dishes_user_id_foreign');
+            $table->dropColumn('user_id');
         });
     }
 }

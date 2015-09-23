@@ -15,7 +15,10 @@ class CreateStatusesTable extends Migration
         Schema::create('statuses', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('description');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
+            $table->string('description_es');
+            $table->string('description_en');
             $table->timestamps();
         });
     }
@@ -27,6 +30,10 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('statues');
+
+        Schema::table('statuses',function(Blueprint $table){
+            $table->dropforeign('statuses_user_id_foreign');
+            $table->dropColumn('user_id');
+        });
     }
 }

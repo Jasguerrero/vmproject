@@ -24,22 +24,9 @@ Route::controllers([
 /** AdminSide **/
 Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
     /* DISHES ROUTE -> Muestra todos los platillos */
-    Route::get('dishes',[
-        'as' => 'dish_path',
-        'uses' => 'DishController@index'
-    ]);
-
-    /* DISHES ROUTE -> Muestra la forma para crear un platillo */
-    Route::get('dishes/create',[
-        'as' => 'dish_path',
-        'uses' => 'DishController@create'
-    ]);
-
-    /* DISHES ROUTE -> Guarda el nuevo platillo */
-    Route::post('dishes',[
-        'as'    => 'dish_path',
-        'uses'  => 'DishController@store'
-    ]);
+    Route::resource('dishes', 'DishController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('statuses', 'StatusController');
 });
 /** AdminSide **/
 
