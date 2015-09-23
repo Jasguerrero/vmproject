@@ -40,12 +40,14 @@ return [
     | been setup for each driver as an example of the required options.
     |
     */
+    /** 'root'   => storage_path('app'), **/
+    /*** public_path('dishesimg') ***/
 
     'disks' => [
 
         'local' => [
             'driver' => 'local',
-            'root'   => storage_path('app'),
+            'root'   => public_path('dishesimg'),
         ],
 
         'ftp' => [

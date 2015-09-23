@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Dish;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DishRequest;
 class DishController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +23,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = DB::table('dishes')->lastest()->paginate(5);
-        $dishes->setPath('dishes');
+        $dishes = Auth::user()->dishes()->get();
         return view('dishes.all')->with('dishes',$dishes);
     }
 
@@ -41,7 +46,7 @@ class DishController extends Controller
     public function store(DishRequest $request)
     {
         $newDish = new Dish($request->all());
-        //Dish->save($newDish);
+        Auth::user()->dishes()->save($newDish);
         return redirect('dishes');
     }
 
@@ -53,7 +58,8 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        //
+        $dish = Dish::find($id);
+        return view('dishes.show')->with('dish',$dish);
     }
 
     /**
@@ -64,7 +70,8 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dish = Dish::find($id);
+        return view('dishes.edit')->with('dish',$dish);
     }
 
     /**
@@ -74,9 +81,11 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DishRequest $request, $id)
     {
-        //
+        $dish = Dish::find($id);
+        $dish->update($request->all());
+        return redirect('dishes');
     }
 
     /**
@@ -87,6 +96,8 @@ class DishController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dish = Dish::find($id);
+        $dish->delete();
+        return redirect('dishes');
     }
 }

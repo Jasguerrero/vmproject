@@ -10,8 +10,7 @@
     <title>Vmenu</title>
 
 
-   <!-- Bootstrap core CSS -->
-    <link href="{{asset('/css/app.css')}}" rel="stylesheet">
+  
     <!--external css-->
     <link href="{{asset('/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
         
@@ -19,6 +18,8 @@
     <link href="{{asset('/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('/css/style-responsive.css')}}" rel="stylesheet">
 
+   <!-- Bootstrap core CSS -->
+    <link href="{{asset('/css/app.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,6 +28,7 @@
     <![endif]-->
 </head>
 
+
 <body>
 
 <section id="container" >
@@ -34,6 +36,7 @@
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
+      @if (!Auth::guest())
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -44,23 +47,27 @@
             
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="#">Salir</a></li>
+                    <li><a class="logout" href="{{url('/auth/logout')}}">Salir</a></li>
                 </ul>
             </div>
+
         </header>
+
       <!--header end-->
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
+   
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
                   <p class="centered"><a href="#"><img src="{{asset('/img/default-img.png')}}" class="img-circle" width="100"></a></p>
-                  <h5 class="centered">Admin</h5>
+                  
+                  <h5 class="centered">{!! Auth::user()->name !!}</h5>
                     
                  <li class="sub-menu">
                       <a href="javascript:;" >
@@ -68,41 +75,44 @@
                           <span>Categorias</span>
                       </a>
                       <ul class="sub">
-                          <li><a class="glyphicon glyphicon-eye-open" href="#"> Ver</a></li>
-                          <li><a class="glyphicon glyphicon-plus" href="#"> Añadir</a></li>
+                          <li>{!!link_to('categories',' Ver',['class'=>'glyphicon glyphicon-eye-open'])!!}</li>
+                          <li>{!!link_to('categories/create',' Añadir',['class'=>'glyphicon glyphicon-plus'])!!}</li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="glyphicon glyphicon-cutlery"></i>
-                          <span>Dishes</span>
+                          <span>Platillos</span>
                       </a>
                       <ul class="sub">
-                          <li><a class="glyphicon glyphicon-eye-open" href="#"> Ver</a></li>
-                          <li><a class="glyphicon glyphicon-plus" href="#"> Añadir</a></li>
+                          <li>{!!link_to('dishes',' Ver',['class'=>'glyphicon glyphicon-eye-open'])!!}</li>
+                          <li>{!!link_to('dishes/create',' Añadir',['class'=>'glyphicon glyphicon-plus'])!!}</li>
+                      
                       </ul>
                   </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="glyphicon glyphicon-stats"></i>
-                          <span>Status</span>
+                          <span>Estatus de orden</span>
                       </a>
                       <ul class="sub">
-                          <li><a class="glyphicon glyphicon-eye-open" href="#"> Ver</a></li>
-                          <li><a class="glyphicon glyphicon-plus" href="#"> Añadir</a></li>
+                         <li>{!!link_to('statuses',' Ver',['class'=>'glyphicon glyphicon-eye-open'])!!}</li>
+                          <li>{!!link_to('statuses/create',' Añadir',['class'=>'glyphicon glyphicon-plus'])!!}</li>
+                      
                       </ul>
                   </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="glyphicon glyphicon-usd"></i>
-                          <span>Payments</span>
+                          <span>Forma de Pago</span>
                       </a>
                     <ul class="sub">
-                          <li><a class="glyphicon glyphicon-eye-open" href="#"> Ver</a></li>
-                          <li><a class="glyphicon glyphicon-plus" href="#"> Añadir</a></li>
+                           <li>{!!link_to('payments',' Ver',['class'=>'glyphicon glyphicon-eye-open'])!!}</li>
+                          <li>{!!link_to('payments/create',' Añadir',['class'=>'glyphicon glyphicon-plus'])!!}</li>
+                      
                       </ul>
                   </li>
                  
@@ -112,7 +122,7 @@
           </div>
       </aside>
       <!--sidebar end-->
-
+        @endif
 
      <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
@@ -121,19 +131,15 @@
 
       <section id="main-content">
           <section class="wrapper site-min-height">
-          <br>    
-          <div class="row">
-          <div class="col-md-4"><br></div>
-          <div class="col-md-4"><h1 style="color:#424a5d;" class="centered">Control Interno</h1></div>
-          <div class="col-md-4"></div>
-          </div>
-          
-          <br>
-          <br>
-         <!--  <h4 style="color:black;"> Para navegar, use el menú de la izquierda</h4> -->
-            
+         
+         <div class="container-fluid">
+           @yield('content')
+         </div>
+         
+         
       
         </section>
+
       </section><!-- /MAIN CONTENT -->
 
 

@@ -20,6 +20,8 @@ class IsAdmin
     {
         if($request->user()->type != 2)
             return redirect('orders');
+       
         return $next($request);
+
     }
 }

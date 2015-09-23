@@ -1,4 +1,4 @@
-@extends('app')
+@extends('masterpage')
 
 
 @section('content')

@@ -1,9 +1,10 @@
-@extends('app')
+@extends('masterpage')
 
 
 @section('content')
     @if($categories != null)
         <h1 class="page-heading">Categorias</h1>
+        <hr/>
         <ul class="list-group">
         @foreach($categories as $category)
                 <li class="list-group-item">

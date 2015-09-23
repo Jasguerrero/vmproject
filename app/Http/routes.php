@@ -24,6 +24,9 @@ Route::controllers([
 /** AdminSide **/
 Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
     /* DISHES ROUTE -> Muestra todos los platillos */
+    Route::get('dashboard',function(){
+        return 'masterpage';
+    });
     Route::resource('dishes', 'DishController');
     Route::resource('categories', 'CategoryController');
     Route::resource('statuses', 'StatusController');
