@@ -35,6 +35,8 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
 });
 /** AdminSide **/
 
+
+
 Route::get('orders',[
     'as' => 'order_path',
     'uses' => 'OrderController@index'
