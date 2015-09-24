@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class CreateCartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,20 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('Categories', function (Blueprint $table) {
+        Schema::create('Carts', function (Blueprint $table) {
             $table->increments('id');
+
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->ondelete('cascade');
-            $table->string('description_es');
-            $table->string('description_en');
-            $table->string('img_url');
+                ->references('id')
+                ->on('users')
+                ->onDelete('no action');
+
+            $table->integer('dish_id')->unsigned();
+            $table->foreign('dish_id')
+                ->references('id')
+                ->on('dishes')
+                ->onDelete('no action');
             $table->timestamps();
         });
     }
@@ -33,6 +37,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('categories');
+        Schema::drop('Carts');
     }
 }
