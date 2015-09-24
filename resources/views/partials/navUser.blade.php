@@ -9,9 +9,9 @@
             <span>Home</span>
         </a>
 
-        <a data-route="users" href="/users">
-            <iron-icon icon="info"></iron-icon>
-            <span>User</span>
+        <a data-route="users" href="/">
+            <iron-icon icon="account-circle"></iron-icon>
+            <span>{!! Auth::user()->name !!}</span>
         </a>
 
         <a data-route="contact" href="/contact">
