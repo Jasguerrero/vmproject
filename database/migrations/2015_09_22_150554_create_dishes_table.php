@@ -16,12 +16,12 @@ class CreateDishesTable extends Migration
         {
             $table->increments('id');
             $table->string('name');
-            $table->string('description_es');
-            $table->string('description_en');
-            $table->string('img_url');
+            $table->string('description_es', 500)->nullable();
+            $table->string('description_en', 500)->nullable();
+            $table->string('img_url')->nullable();
             $table->string('price');
-            $table->string('measure');
-            $table->string('prep_time');
+            $table->string('measure')->nullable();
+            $table->string('prep_time')->nullable();
 
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')
