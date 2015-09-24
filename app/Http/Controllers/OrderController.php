@@ -21,7 +21,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
-        
+
         return view('orders.all')->with('orders',$orders);
     }
 
@@ -51,9 +51,9 @@ class OrderController extends Controller
         $order->comments = $request->comments;
 
         $order->store();
-
+        
         Session::flash('message', 'Tu orden ha sido colocada, gracias. / Your order has been placed, thanks.');
-        return Redirect::action('CategoryController@index');
+        return Redirect::action('CategoriesUserController@index');
     }
 
     /**
