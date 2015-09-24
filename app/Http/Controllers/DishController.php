@@ -24,7 +24,8 @@ class DishController extends Controller
     public function index()
     {
         $dishes = Auth::user()->dishes()->get();
-        return view('dishes.all')->with('dishes',$dishes);
+        $categories = Auth::user()->categories()->get();
+        return view('dishes.all')->with(['dishes'=> $dishes,'categories' => $categories]);
     }
 
     /**
@@ -34,7 +35,8 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view('dishes.create');
+        $categories = Category::all();
+        return view('dishes.create')->with('categories',$categories);
     }
 
     /**
@@ -59,6 +61,7 @@ class DishController extends Controller
     public function show($id)
     {
         $dish = Dish::find($id);
+        //$categories = Auth::user()->categories()->get();
         return view('dishes.show')->with('dish',$dish);
     }
 
@@ -70,8 +73,10 @@ class DishController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::all();
+        //dd($categories);
         $dish = Dish::find($id);
-        return view('dishes.edit')->with('dish',$dish);
+        return view('dishes.edit')->with(['dish' => $dish,'categories' => $categories]);
     }
 
     /**

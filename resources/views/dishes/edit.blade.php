@@ -5,12 +5,18 @@
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
             @include('partials.errors')
-            <h1 class="page-heading">Editar categoria</h1>
+            <h1 class="page-heading">Editar Platillo</h1>
             <hr/>
-            {!! Form::model($dish,['method' => 'PATCH','action' => ['DishController@update',$dish->id]]) !!}
+            {!! Form::model($dish,['method' => 'PATCH','action' => ['DishController@update',$dish->id],'files'=>'true']) !!}
             <div class="form-group">
                 {!! Form::label('category_id','Categories:')!!}
-                {!! Form::select('category_id',['' => 'Selecciona un categoria','1'=>'Desayunos','2'=>'Comidas','3'=>'Cenas'],null,['class' => 'form-control input-sm']) !!}
+                        <!--{!! Form::select('category_id',['' => 'Selecciona un categoria','1'=>'Desayunos','2'=>'Comidas','3'=>'Cenas'],null,['class' => 'form-control input-sm']) !!}-->
+                <select name="category_id" id="category_id" class="form-control input-sm">
+                    <option value="">- Seleciona una Categoria -</option>
+                    @foreach($categories as $category)
+                        <option value="{!! $category->id !!}">{!! $category->description_es !!}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 {!! Form::label('name','Nombre:')!!}
@@ -34,7 +40,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('measure','Cantidad del platillo:')!!}
-                {!! Form::input('number','measure',null,['class' => 'form-control']) !!}
+                {!! Form::input('text','measure',null,['class' => 'form-control']) !!}
             </div><div class="form-group">
                 {!! Form::label('prep_time','Tiempo de Preparación:')!!}
                 {!! Form::input('number','prep_time',null,['class' => 'form-control']) !!}

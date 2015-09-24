@@ -11,7 +11,13 @@
             {!! Form::open(['url' => 'dishes','files'=> true]) !!}
             <div class="form-group">
                 {!! Form::label('category_id','Categories:')!!}
-                {!! Form::select('category_id',['' => 'Selecciona un categoria','1'=>'Desayunos','2'=>'Comidas','3'=>'Cenas'],null,['class' => 'form-control input-sm']) !!}
+                <!--{!! Form::select('category_id',['' => 'Selecciona un categoria','1'=>'Desayunos','2'=>'Comidas','3'=>'Cenas'],null,['class' => 'form-control input-sm']) !!}-->
+                <select name="category_id" id="category_id" class="form-control input-sm">
+                    <option value="">- Seleciona una Categoria -</option>
+                    @foreach($categories as $category)
+                        <option value="{!! $category->id !!}">{!! $category->description_es !!}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 {!! Form::label('name','Nombre:')!!}
@@ -35,7 +41,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('measure','Cantidad del platillo:')!!}
-                {!! Form::input('number','measure',null,['class' => 'form-control']) !!}
+                {!! Form::input('text','measure',null,['class' => 'form-control']) !!}
             </div><div class="form-group">
                 {!! Form::label('prep_time','Tiempo de Preparación:')!!}
                 {!! Form::input('number','prep_time',null,['class' => 'form-control']) !!}

@@ -7,14 +7,18 @@
             @include('partials.errors')
             <h1 class="page-heading">Editar categoria</h1>
             <hr/>
-            {!! Form::model($category,['method' => 'PATCH','action' => ['CategoryController@update',$category->id]]) !!}
+            {!! Form::model($category,['method' => 'PATCH','action' => ['CategoryController@update',$category->id],'files'=>'true']) !!}
             <div class="form-group">
-                {!! Form::label('description_es','Descripción Español:')!!}
-                {!! Form::textarea('description_es',null,['class' => 'form-control']) !!}
+                {!! Form::label('description_es','Nombre Español:')!!}
+                {!! Form::input('text','description_es',null,['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('description_en','Descripción Inglés:')!!}
-                {!! Form::textarea('description_en',null,['class' => 'form-control']) !!}
+                {!! Form::label('description_en','Nombre Inglés:')!!}
+                {!! Form::input('text','description_en',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('img_url','Ruta de la imagen:')!!}
+                {!! Form::file('img_url') !!}
             </div>
             <div class="form-group">
                 {!! Form::submit('Update',['class' => 'btn btn-primary form-control']) !!}

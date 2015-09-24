@@ -10,6 +10,8 @@
                 <h3 class="panel-title">Lenguajes Disponibles</h3>
             </div>
             <div class="panel-body">
+                <img class="img-responsive center-block" width="100px" height="50px" src="{{ asset('/dishesimg/'.$category->img_url) }}" alt="{!! $category->description_es !!}"/>
+                <hr/>
                 {!! $category->description_es !!}
                 <hr/>
                 {!! $category->description_en !!}
