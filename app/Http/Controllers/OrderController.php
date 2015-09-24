@@ -47,7 +47,7 @@ class OrderController extends Controller
 
         $order->store();
 
-        Session::flash('message', 'Tu orden ha sido colocada, gracias. / Your order has been placed, thanks.')
+        Session::flash('message', 'Tu orden ha sido colocada, gracias. / Your order has been placed, thanks.');
         return Redirect::action('CategoryController@index');
     }
 
@@ -95,7 +95,7 @@ class OrderController extends Controller
 
         $order->store();
 
-        Session::flash('message', 'Orden cambiada. / Order changed.')
+        Session::flash('message', 'Orden cambiada. / Order changed.');
         return Redirect::action('OrderController@index');
     }
 
