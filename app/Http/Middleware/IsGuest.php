@@ -4,11 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-
-class IsAdmin
+class IsGuest
 {
-
-
     /**
      * Handle an incoming request.
      *
@@ -18,9 +15,8 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->type != 2)
-            return redirect('home');
+        if($request->user()->type != 1)
+            return redirect('dashboard');
         return $next($request);
-
     }
 }
