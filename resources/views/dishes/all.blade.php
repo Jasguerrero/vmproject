@@ -8,7 +8,7 @@
         <ul class="list-group">
             @foreach($dishes as $dish)
                 <li class="list-group-item">
-                    <span class="badge">{!! link_to('dishes/' . $dish->id ,'Ver',null) !!}</span>
+                    <span class="badge bg-success">{!! link_to('dishes/' . $dish->id ,'Ver',null) !!}</span>
                     Nombre del platillo : {!! $dish->name !!} - Categoria : {!! \App\Category::find($dish->category_id)->description_es !!}
                 </li>
             @endforeach
