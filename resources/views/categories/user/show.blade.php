@@ -29,6 +29,7 @@
                                           pin="true" editable="true" name="qty"></paper-slider>
                         </div>
                         <div class="card-actions">
+                            <button></button>
                             <paper-button raised id="my-order-button">Ordenar/Order</paper-button>
                         </div>
                     </paper-card>

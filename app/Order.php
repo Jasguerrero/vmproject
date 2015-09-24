@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $table = 'orders';
-    protected $fillable = ['comments', 'status', 'payment_method'];
+    protected $fillable = ['dish_id','comments', 'status', 'payment_method'];
 
     public function owner()
     {
@@ -15,6 +15,6 @@ class Order extends Model
     }
     public function dishes()
     {
-        return $this -> hasMany('App\Dish');
+        return $this -> belongsToMany('App\Dish');
     }
 }
