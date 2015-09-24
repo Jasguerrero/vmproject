@@ -20,7 +20,7 @@ class Dish extends Model
 
     public function category()
     {
-        return $this -> belongsTo('App\Category');
+        return $this -> belongsToMany('App\Category');
     }
     public function orders(){
         return $this -> hasMany('App\Order');

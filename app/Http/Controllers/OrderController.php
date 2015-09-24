@@ -16,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all;
+        $orders = Order::all();
         return view('orders.all')->with('orders',$orders);
     }
 
@@ -47,8 +47,9 @@ class OrderController extends Controller
 
         $order->store();
 
-        Session::flash('message', 'Tu orden ha sido colocada, gracias. / Your order has been placed, thanks.')
-        return Redirect::action('CategoryController@index');
+
+        Session::flash('message', 'Tu orden ha sido colocada, gracias. / Your order has been placed, thanks.');
+        return Redirect::action('CategoriesUserController@index');
     }
 
     /**
@@ -95,7 +96,7 @@ class OrderController extends Controller
 
         $order->store();
 
-        Session::flash('message', 'Orden cambiada. / Order changed.')
+        Session::flash('message', 'Orden cambiada. / Order changed.');
         return Redirect::action('OrderController@index');
     }
 
