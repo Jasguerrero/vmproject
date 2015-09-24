@@ -55,7 +55,7 @@
                 <span class="flex"></span>
 
                 <!-- Toolbar icons -->
-                <a  id = "my-button" href={{URL::asset('/')}} >
+                <a  id = "my-button" href={{ url('/') }} >
                     <paper-icon-button icon="refresh" }></paper-icon-button>
                 </a>
 

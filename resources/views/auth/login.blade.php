@@ -30,23 +30,11 @@
 							<div class="form-group">
 								<paper-input label="Password" class="form-control" name="password" type="password">
 								</paper-input>
-							</div>
-
-							<div class="form-group">
-								<div class="col-md-6 col-md-offset-4">
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="remember"> Remember Me
-										</label>
-									</div>
-								</div>
-							</div>
+							</div><br>
 
 							<div class="form-group">
 								<div class="col-md-6 col-md-offset-4">
 									<button class="myButton">Login</button>
-									<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
-									<a class="btn btn-link" href="{{ url('/auth/register') }}">Register</a>
 								</div>
 							</div>
 						</form>

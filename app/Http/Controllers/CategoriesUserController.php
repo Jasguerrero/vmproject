@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Category;
+use Illuminate\Support\Facades\DB;
 
 class CategoriesUserController extends Controller
 {
@@ -18,7 +19,7 @@ class CategoriesUserController extends Controller
 
     public function index()
     {
-        $categories = Auth::user()->categories()->get();
+        $categories = DB::table('categories')->get();
         return view('categories.user.index')->with('categories',$categories);
     }
 
