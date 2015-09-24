@@ -61,6 +61,7 @@ class DishController extends Controller
     public function show($id)
     {
         $dish = Dish::find($id);
+        //$categories = Auth::user()->categories()->get();
         return view('dishes.show')->with('dish',$dish);
     }
 

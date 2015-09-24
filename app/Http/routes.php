@@ -11,16 +11,15 @@
 |
 */
 
-Route::get('/',function() {
-    if(Auth::check())
-        return view('pages.home');
-    return view('auth.login');
-});
+
+Route::resource('/', 'CategoriesUserController@index');
+Route::resource('/home', 'CategoriesUserController@index');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
 /** AdminSide **/
 Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
     /* DISHES ROUTE -> Muestra todos los platillos */
@@ -28,42 +27,25 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
         return view('pages.dashboard');
     });
 
-
     Route::resource('dishes', 'DishController');
+
     Route::get('search',[
         'as' => 'breakfast_path',
         'uses' => 'SearchDishController@search'
     ]);
+
     Route::resource('categories', 'CategoryController');
     Route::resource('statuses', 'StatusController');
     Route::resource('payments', 'PaymentController');
-
-
 });
 /** AdminSide **/
 
-/** ClientSide **/
-Route::group(['middleware' => 'App\Http\Middleware\IsGuest'],function(){
-    /* DISHES ROUTE -> Muestra todos los platillos */
-    Route::get('home',function() {
-        return view('pages.home');
-    });
+Route::get('orders',[
+    'as' => 'order_path',
+    'uses' => 'OrderController@index'
+]);
 
-    Route::resource('orders','OrderController');
-    Route::get('breakfast',[
-        'as' => 'breakfast_path',
-        'uses' => 'MenuController@breakfast'
-    ]);
-    Route::get('lunch',[
-        'as' => 'breakfast_path',
-        'uses' => 'MenuController@lunch'
-    ]);
-    Route::get('dinner',[
-        'as' => 'breakfast_path',
-        'uses' => 'MenuController@dinner'
-    ]);
-});
-/** ClientSide **/
-
-
-
+/** UserSide **/
+Route::resource('menu', 'CategoriesUserController', [
+    'only' => ['index', 'show']
+]);
