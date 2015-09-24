@@ -163,6 +163,7 @@
     <script class="include" type="text/javascript" src="{{asset('/js/jquery.dcjqaccordion.2.7.js')}}"></script>
     <script src="{{asset('/js/jquery.scrollTo.min.js')}}"></script>
     <script src="{{asset('/js/jquery.nicescroll.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/form.js')}}" type="text/javascript"></script>
 
 
     <!--common script for all pages-->

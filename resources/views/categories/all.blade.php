@@ -8,7 +8,7 @@
         <ul class="list-group">
         @foreach($categories as $category)
                 <li class="list-group-item">
-                    <span class="badge">{!! link_to('categories/' . $category->id ,'Ver',null) !!}</span>
+                    <span class="badge bg-success">{!! link_to('categories/' . $category->id ,'Ver',null) !!}</span>
                     Número de categoria : {!! $category->id !!}
                 </li>
         @endforeach
