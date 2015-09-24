@@ -16,5 +16,8 @@ class UserTableSeeder extends Seeder
 
         //Crear administrador (admin, admin).
         factory(App\User::class, 'admin')->create();
+
+        //Crear test user. (test, test).
+        factory(App\User::class, 'test')->create():
     }
 }

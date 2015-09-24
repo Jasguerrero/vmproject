@@ -32,3 +32,14 @@ $factory->defineAs(App\User::class, 'admin', function (Faker\Generator $faker) {
         'type' => 2
     ];
 });
+
+//Crear usuario test.
+$factory->defineAs(App\User::class, 'test', function (Faker\Generator $faker) {
+    return [
+        'name' => 'test',
+        'email' => 'test@test.com',
+        'password' => bcrypt('test'),
+        'room' => 0,
+        'type' => 1
+    ];
+});
