@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +19,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $msg = "Fuiste redirigido";
-        return view('orders.all')->with('msg',$msg);
+        $orders = Auth::user()->orders()->get();
+        return view('orders.all')->with('orders',$orders);
     }
 
     /**
