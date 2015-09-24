@@ -66,7 +66,8 @@
 
                 <!-- Application sub title -->
                 <div class="bottom bottom-container center horizontal layout">
-                    <div class="bottom-title paper-font-subhead">vMenu</div>
+                    <div class="bottom-title paper-font-subhead">Welcome, {!! Auth::user()->name !!}!
+                         Room: {!! Auth::user()->room !!}</div>
                 </div>
 
             </paper-toolbar>
