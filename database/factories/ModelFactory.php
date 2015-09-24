@@ -11,11 +11,35 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+//Crear usuario Guest aleatorio.
+$factory->defineAs(App\User::class, 'guest', function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->userName,
         'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'password' => bcrypt('password'),
+        'room' => $faker->numberBetween($min = 1, $max = 150),
+        'type' => 1
+    ];
+});
+
+//Crear usuario Administrativo.
+$factory->defineAs(App\User::class, 'admin', function (Faker\Generator $faker) {
+    return [
+        'name' => 'admin',
+        'email' => 'admin@admin.com',
+        'password' => bcrypt('admin'),
+        'room' => 0,
+        'type' => 2
+    ];
+});
+
+//Crear usuario test.
+$factory->defineAs(App\User::class, 'test', function (Faker\Generator $faker) {
+    return [
+        'name' => 'test',
+        'email' => 'test@test.com',
+        'password' => bcrypt('test'),
+        'room' => 0,
+        'type' => 1
     ];
 });

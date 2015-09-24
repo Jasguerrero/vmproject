@@ -6,7 +6,7 @@
         <div class="col-lg-5 col-lg-offset-3">
             @include('partials.errors')
             <div class="form-area">
-                {!! Form::model($category,['method' => 'PATCH', 'files' => 'true','action' => ['CategoryController@update',$category->id]]) !!} 
+                {!! Form::model($category,['method' => 'PATCH', 'files' => 'true','action' => ['CategoryController@update',$category->id]]) !!}
                 <br style="clear:both">
                 <h3 style="margin-bottom: 25px; text-align: center;">Editar Categoria</h3>
                 <hr/>

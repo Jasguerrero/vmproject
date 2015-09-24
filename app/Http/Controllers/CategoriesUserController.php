@@ -2,30 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Dish;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Category;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\DishRequest;
-class DishController extends Controller
+
+class CategoriesUserController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $dishes = Auth::user()->dishes()->get();
-        $categories = Auth::user()->categories()->get();
-        return view('dishes.all')->with(['dishes'=> $dishes,'categories' => $categories]);
+        $categories = DB::table('categories')->get();
+        return view('categories.user.index')->with('categories',$categories);
     }
 
     /**
@@ -35,8 +30,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('dishes.create')->with('categories',$categories);
+        //
     }
 
     /**
@@ -45,11 +39,9 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DishRequest $request)
+    public function store(Request $request)
     {
-        $newDish = new Dish($request->all());
-        Auth::user()->dishes()->save($newDish);
-        return redirect('dishes');
+        //
     }
 
     /**
@@ -60,9 +52,8 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        $dish = Dish::find($id);
-        //$categories = Auth::user()->categories()->get();
-        return view('dishes.show')->with('dish',$dish);
+        $dishes = Category::find($id);
+        return view('categories.user.show')->with('dishes', $dishes->dishes);
     }
 
     /**
@@ -73,10 +64,7 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::all();
-        //dd($categories);
-        $dish = Dish::find($id);
-        return view('dishes.edit')->with(['dish' => $dish,'categories' => $categories]);
+        //
     }
 
     /**
@@ -86,11 +74,9 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(DishRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $dish = Dish::find($id);
-        $dish->update($request->all());
-        return redirect('dishes');
+        //
     }
 
     /**
@@ -101,8 +87,6 @@ class DishController extends Controller
      */
     public function destroy($id)
     {
-        $dish = Dish::find($id);
-        $dish->delete();
-        return redirect('dishes');
+        //
     }
 }

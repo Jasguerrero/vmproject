@@ -12,10 +12,15 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('Categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
+
+            $table->integer('created_by')->unsigned();
+            $table->foreign('created_by')
+                  ->references('id')
+                  ->on('users')
+                  ->ondelete('cascade');
+
             $table->string('description_es');
             $table->string('description_en');
             $table->string('img_url');

@@ -12,15 +12,16 @@ class CreateDishesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dishes', function(Blueprint $table)
+        Schema::create('Dishes', function(Blueprint $table)
         {
             $table->increments('id');
-
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->ondelete('cascade');
+            $table->string('name');
+            $table->string('description_es', 500)->nullable();
+            $table->string('description_en', 500)->nullable();
+            $table->string('img_url')->nullable();
+            $table->string('price');
+            $table->string('measure')->nullable();
+            $table->string('prep_time')->nullable();
 
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')
@@ -28,13 +29,6 @@ class CreateDishesTable extends Migration
                   ->on('categories')
                   ->ondelete('set null');
 
-            $table->string('name');
-            $table->string('description_es');
-            $table->string('description_en');
-            $table->string('img_url');
-            $table->string('price');
-            $table->string('measure');
-            $table->string('prep_time');
             $table->timestamps();
         });
     }
@@ -46,6 +40,6 @@ class CreateDishesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('dishes');        
+        Schema::drop('dishes');
     }
 }
