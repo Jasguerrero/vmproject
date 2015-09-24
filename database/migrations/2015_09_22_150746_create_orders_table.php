@@ -21,7 +21,6 @@ class CreateOrdersTable extends Migration
                   ->references('id')
                   ->on('users')
                   ->ondelete('cascade');
-
             $table->text('comments');
             $table->string('status');
             $table->string('payment_method');
