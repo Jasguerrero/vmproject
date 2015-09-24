@@ -1,9 +1,5 @@
 @extends('app')
 
-
-@section('content')
-    @extends('app')
-
 @section('content')
     @if($dishes != null)
         <h1 class="page-heading">Platillos</h1>
@@ -26,7 +22,7 @@
                             <hr/>
                             Tiempo de preparación : {!! $dish->prep_time !!}
                         </div>
-                        <div class="panel-footer">buttons</div>
+                        <div class="panel-footer">buttons </div>
                     </div>
                 </div>
             </div>
@@ -36,10 +32,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="jumbotron">
-                    <h1 class="page-heading">No realizaste ordenes aún</h1>
+                    <h1 class="page-heading">No contamos con desayunos por el momento</h1>
                 </div>
             </div>
         </div>
     @endif
 @endsection
-@stop

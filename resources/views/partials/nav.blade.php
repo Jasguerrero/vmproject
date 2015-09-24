@@ -11,27 +11,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Desayunos<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu" >
-                        <li>{!! link_to('suggestions/create' , 'Ingresar desayuno',null) !!}</li>
-                        <li>{!! link_to('suggestions' , 'Platillos',null) !!}</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Comidas<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu" >
-                        <li>{!! link_to('suggestions/create' , 'Ingresar Comida',null) !!}</li>
-                        <li>{!! link_to('suggestions' , 'Comidas',null) !!}</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cenas<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu" >
-                        <li>{!! link_to('suggestions/create' , 'Ingresar cena',null) !!}</li>
-                        <li>{!! link_to('suggestions' , 'Cenas',null) !!}</li>
-                    </ul>
-                </li>
+                <li>{!! link_to('breakfast','Desayunos',null) !!}</li>
+                <li>{!! link_to('lunch','Comidas',null) !!}</li>
+                <li>{!! link_to('dinner','Cenas',null) !!}</li>
+                <li>{!! link_to('orders','Ordenes',null) !!}</li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

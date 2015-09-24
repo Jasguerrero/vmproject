@@ -7,7 +7,7 @@
         <ul class="list-group">
             @foreach($payments as $payment)
                 <li class="list-group-item">
-                    <span class="badge">{!! link_to('payments/' . $payment->id ,'Ver',null) !!}</span>
+                    <span class="badge bg-success">{!! link_to('payments/' . $payment->id ,'Ver',null) !!}</span>
                     Número de categoria : {!! $payment->id !!}
                 </li>
             @endforeach

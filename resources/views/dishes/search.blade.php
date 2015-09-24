@@ -5,7 +5,7 @@
     @if($dishes != null)
         <h1 class="page-heading">Platillos</h1>
         <hr/>
-        {!! Form::open(['method' => 'GET', 'action' => 'SearchDishController@search','class'=>'form-inline']) !!}
+        {!! Form::open(['url' => '#','class'=>'form-inline']) !!}
         <div class="form-group">
             {!! Form::label('search','Categories:')!!}
             <select name="search" id="search" class="form-control input-sm">
@@ -16,7 +16,7 @@
             </select>
         </div>
         <div class="form-group">
-            {!! Form::submit('Filtrar',['class' => 'btn btn-success form-control']) !!}
+            {!! Form::submit('Filtrar',['class' => 'btn btn-primary form-control']) !!}
         </div>
         {!! Form::close() !!}
 

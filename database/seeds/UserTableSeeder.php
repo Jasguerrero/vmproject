@@ -18,6 +18,6 @@ class UserTableSeeder extends Seeder
         factory(App\User::class, 'admin')->create();
 
         //Crear test user. (test, test).
-        factory(App\User::class, 'test')->create():
+        factory(App\User::class, 'test')->create();
     }
 }

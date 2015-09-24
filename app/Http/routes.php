@@ -19,17 +19,24 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
 /** AdminSide **/
 Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
     /* DISHES ROUTE -> Muestra todos los platillos */
-    Route::get('dashboard',function(){
-        return 'masterpage';
+    Route::get('dashboard',function() {
+        return view('pages.dashboard');
     });
+
     Route::resource('dishes', 'DishController');
+
+    Route::get('search',[
+        'as' => 'breakfast_path',
+        'uses' => 'SearchDishController@search'
+    ]);
+
     Route::resource('categories', 'CategoryController');
     Route::resource('statuses', 'StatusController');
     Route::resource('payments', 'PaymentController');
-
 });
 /** AdminSide **/
 
@@ -38,14 +45,11 @@ Route::get('orders',[
     'uses' => 'OrderController@index'
 ]);
 
-Route::get('masterpage', function(){
-
-return view('masterpage');
-
-});
-
 /** UserSide **/
 Route::resource('menu', 'CategoriesUserController',
-    ['only' => ['index', 'show']]);
+    ['only' => ['index', 'show']
+]);
+
 Route::resource('cart', 'CartUserController',
-    ['only' => ['index']]);
+    ['only' => ['index']
+]);
