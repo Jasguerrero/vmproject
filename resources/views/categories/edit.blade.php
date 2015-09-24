@@ -7,7 +7,7 @@
             @include('partials.errors')
             <h1 class="page-heading">Editar categoria</h1>
             <hr/>
-            {!! Form::model($category,['method' => 'PATCH','action' => ['CategoryController@update',$category->id]]) !!}
+            {!! Form::model($category,['method' => 'PATCH','action' => ['CategoryController@update',$category->id],'files'=>'true']) !!}
             <div class="form-group">
                 {!! Form::label('description_es','Nombre Español:')!!}
                 {!! Form::input('text','description_es',null,['class' => 'form-control']) !!}

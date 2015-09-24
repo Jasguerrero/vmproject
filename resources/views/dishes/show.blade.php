@@ -38,11 +38,11 @@
             </div>
         </div>
 
-    @elseif(!$category)
+    @elseif(!$dish)
         <div class="row">
             <div class="col-lg-12">
                 <div class="jumbotron">
-                    <h1 class="page-heading">La categoria no está disponible</h1>
+                    <h1 class="page-heading">El platillo no está disponible</h1>
                 </div>
             </div>
         </div>

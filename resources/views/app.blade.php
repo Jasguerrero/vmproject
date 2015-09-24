@@ -31,7 +31,7 @@
 
 </head>
 
-<body>
+<body style="padding-top: 70px;">
 @include('partials.nav')
 
 <div class="container">
