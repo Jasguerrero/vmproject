@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-lg-5 col-lg-offset-3">
             @include('partials.errors')
+
             <div class="form-area">
                 {!! Form::model($category,['method' => 'PATCH', 'files' => 'true','action' => ['CategoryController@update',$category->id]]) !!} 
                 <br style="clear:both">
@@ -26,7 +27,8 @@
                     {!! Form::submit('Update',['class' => 'btn btn-success form-control']) !!}
                 </div>
                 {!! Form::close() !!}
-            </div>
+
+           </div>
         </div>
     </div>
 @stop

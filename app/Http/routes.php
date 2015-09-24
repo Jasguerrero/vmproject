@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/',function() {
-    if(Auth::check())
-        return view('pages.home');
-    return view('auth.login');
-});
+
+Route::resource('/', 'CategoriesUserController@index');
+Route::resource('/home', 'CategoriesUserController@index');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
@@ -35,8 +33,6 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
 });
 /** AdminSide **/
 
-
-
 Route::get('orders',[
     'as' => 'order_path',
     'uses' => 'OrderController@index'
@@ -48,4 +44,6 @@ return view('masterpage');
 
 });
 
-
+/** UserSide **/
+Route::resource('menu', 'CategoriesUserController',
+    ['only' => ['index', 'show']]);

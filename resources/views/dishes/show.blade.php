@@ -51,21 +51,7 @@
                     {!! Form::close() !!}
                 </div>
         </div> 
-      
 
-          <!--   <div class="row">
-            <div class="col-lg-3 col-md-offset-6">
-                {!! link_to('dishes/' .$dish->id. '/edit', 'Update',array('class' => 'btn btn-default btn-success center-block')) !!}
-            </div>
-            <div class="col-lg-3 col-md-offset-0">
-                {!! Form::open(['method' => 'DELETE', 'action' => ['DishController@destroy',$dish->id]]) !!}
-
-                {!! Form::submit('Delete',['class' => 'btn btn-default btn-danger btn-block']) !!}
-
-                {!! Form::close() !!}
-            </div>
-
-            </div> -->
         </div>
     </div>
     
@@ -82,5 +68,4 @@
             </div>
         </div>
     @endif
-
 @stop
