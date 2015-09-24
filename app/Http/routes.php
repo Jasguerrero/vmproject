@@ -46,6 +46,10 @@ Route::get('orders',[
 ]);
 
 /** UserSide **/
-Route::resource('menu', 'CategoriesUserController', [
-    'only' => ['index', 'show']
+Route::resource('menu', 'CategoriesUserController',
+    ['only' => ['index', 'show']
+]);
+
+Route::resource('cart', 'CartUserController',
+    ['only' => ['index']
 ]);
