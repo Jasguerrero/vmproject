@@ -9,6 +9,10 @@ use App\Order;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +21,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
+        
         return view('orders.all')->with('orders',$orders);
     }
 
