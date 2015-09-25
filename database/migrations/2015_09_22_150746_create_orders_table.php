@@ -12,7 +12,7 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('Orders', function(Blueprint $table)
+        Schema::create('orders', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
@@ -24,21 +24,21 @@ class CreateOrdersTable extends Migration
 
             $table->foreign('user_id')
                   ->references('id')
-                  ->on('Users')
+                  ->on('users')
                   ->onDelete('cascade');
 
             $table->foreign('payment_id')
                   ->references('id')
-                  ->on('Payments')
+                  ->on('payments')
                   ->onDelete('no action');
 
             $table->foreign('status_id')
                   ->references('id')
-                  ->on('Statuses')
+                  ->on('statuses')
                   ->onDelete('no action');
             $table->foreign('cart_id')
                 ->references('id')
-                ->on('Carts')
+                ->on('carts')
                 ->onDelete('no action');
         });
     }
@@ -50,6 +50,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Orders');
+        Schema::drop('orders');
     }
 }

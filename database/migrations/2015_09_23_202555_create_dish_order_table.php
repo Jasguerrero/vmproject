@@ -12,7 +12,7 @@ class CreateDishOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('Dish_Order', function (Blueprint $table)
+        Schema::create('dish_order', function (Blueprint $table)
         {
             $table->integer('dish_id')->unsigned();
             $table->integer('order_id')->unsigned();
@@ -20,12 +20,12 @@ class CreateDishOrderTable extends Migration
 
             $table->foreign('dish_id')
                   ->references('id')
-                  ->on('Dishes')
+                  ->on('dishes')
                   ->onDelete('cascade');
 
             $table->foreign('order_id')
                   ->references('id')
-                  ->on('Orders')
+                  ->on('orders')
                   ->onDelete('cascade');
         });
     }
@@ -37,6 +37,6 @@ class CreateDishOrderTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Dish_Order');
+        Schema::drop('dish_order');
     }
 }

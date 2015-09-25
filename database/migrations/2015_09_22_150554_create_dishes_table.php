@@ -12,7 +12,7 @@ class CreateDishesTable extends Migration
      */
     public function up()
     {
-        Schema::create('Dishes', function(Blueprint $table)
+        Schema::create('dishes', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();

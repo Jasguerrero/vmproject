@@ -12,7 +12,7 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('Statuses', function(Blueprint $table)
+        Schema::create('statuses', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
@@ -33,6 +33,6 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Statuses');
+        Schema::drop('statuses');
     }
 }

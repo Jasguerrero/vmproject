@@ -12,7 +12,7 @@ class CreateCartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Carts', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('user_id')->unsigned();
@@ -23,7 +23,7 @@ class CreateCartsTable extends Migration
             $table->integer('status_id')->unsigned();
             $table->foreign('status_id')
                 ->references('id')
-                ->on('Statuses')
+                ->on('statuses')
                 ->onDelete('no action');
 
             $table->integer('dish_id')->unsigned();
@@ -34,7 +34,7 @@ class CreateCartsTable extends Migration
             $table->integer('payment_id')->unsigned();
             $table->foreign('payment_id')
                 ->references('id')
-                ->on('Payments')
+                ->on('payments')
                 ->onDelete('no action');
             $table->text('comments');
             $table->timestamps();
@@ -48,6 +48,6 @@ class CreateCartsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Carts');
+        Schema::drop('carts');
     }
 }
