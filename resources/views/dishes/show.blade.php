@@ -43,13 +43,6 @@
                             <div class="col-lg-3 col-md-offset-6">
                                 {!! link_to('dishes/' .$dish->id. '/edit', 'Update',array('class' => 'btn btn-default btn-success center-block')) !!}
                             </div>
-
-<<<<<<< HEAD
-                    {!! Form::close() !!}
-                </div>
-        </div> 
-
-=======
                             <div class="col-lg-3 col-md-offset-0">
                                 {!! Form::open(['method' => 'DELETE', 'action' => ['DishController@destroy',$dish->id]]) !!}
 
@@ -61,7 +54,7 @@
                     </div>
                 </div>
             </div>
->>>>>>> a6a5a923b2eca75d1f2bc4a308b9a220cbf50fd1
+
         </div>
     @elseif(!$dish)
         <div class="row">
