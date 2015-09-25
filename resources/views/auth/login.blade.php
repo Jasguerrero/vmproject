@@ -5,7 +5,7 @@
 	<div align="center">
 		<div style="padding: 10px">
 			<paper-card elevation="3"
-						image={{URL::asset('images/logos/picture2.jpg')}}>
+						image={{URL::asset('images/logos/logo.jpg')}}>
 				<div class="card-content" align="left">
 					<div class="panel-body">
 						@if (count($errors) > 0)
