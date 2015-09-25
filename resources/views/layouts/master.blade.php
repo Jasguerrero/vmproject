@@ -39,6 +39,7 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href={{URL::asset('style/main.css')}}>
 
+
 </head>
 <body unresolved class="fullbleed layout vertical">
 <span id="browser-sync-binding"></span>

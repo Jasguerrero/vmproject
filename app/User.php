@@ -38,6 +38,10 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
     /** Guest method **/
+    public function carts()
+    {
+        return $this -> hasMany('App\Cart');
+    }
     public function orders()
     {
         return $this -> hasMany('App\Order');

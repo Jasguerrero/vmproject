@@ -14,6 +14,8 @@
 <link rel="import" href={{  URL::asset('bower_components/paper-toast/paper-toast.html') }}>
 <link rel="import" href={{  URL::asset('bower_components/paper-input/paper-input.html') }}>
 <link rel="import" href={{  URL::asset('bower_components/paper-slider/paper-slider.html') }}>
+<link rel="import" href={{  URL::asset('bower_components/paper-dropdown-menu/paper-dropdown-menu.html') }}>
+<link rel="import" href={{  URL::asset('bower_components/paper-item/paper-item.html') }}>
 
 <!--IRON ELEMENTS-->
 <link rel="import" href={{  URL::asset('bower_components/iron-icons/iron-icons.html') }}>

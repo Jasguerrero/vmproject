@@ -4,10 +4,7 @@ $(document).ready(function(){
     currentURL = document.documentURI;
     console.log("currentURL: "+currentURL);
 
-/*
-* $("#dishes").append("<li class='list-group-item'><span class='badge'>{!! link_to('dishes/' ."+ breakFastObj.id+" ,'Ver',null) }</span>"+
- "Nombre del platillo : {!! "+breakFastObj.name+" !!} - Categoria : {!! \App\Category::find(+"+breakFastObj.category_id+")->description_es+ !!} </li>");
-* */
+
 
     /* SEARCH BREAKFAST AJAX */
     /*$('#search').on('change',function(e) {

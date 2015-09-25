@@ -6,10 +6,9 @@ use App\Cart;
 use App\Http\Requests\CartUserRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
+
 use Illuminate\Support\Facades\Auth;
-use App\Category;
+
 use Illuminate\Support\Facades\DB;
 
 class CartUserController extends Controller
@@ -21,14 +20,28 @@ class CartUserController extends Controller
 
     public function index()
     {
-
-        return view('orders.cart.index');
+        $carts = Auth::user()->carts()->get();
+        $status = DB::table('statuses')->get();
+        $payments = DB::table('payments')->get();
+        return view('orders.cart.index')->with(['carts' => $carts,'status' => $status,'payments'=>$payments]);
     }
 
+    /**
+     * Store a newly created resource in storage.
+     * Guarda nuestra nueva categoria en la base de datos
+     * @param    $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(CartUserRequest $request)
     {
-        $newitem = new Cart($request);
-        Auth::user()->carts()->save($newitem);
-        return view('orders.cart.index');
+
+        $newItem = new Cart($request->all());
+        Auth::user()->carts()->save($newItem);
+        $carts = Auth::user()->carts()->get();
+        //return view('orders.cart.index')->with('carts',$carts);
+        $status = DB::table('statuses')->get();
+        $payments = DB::table('payments')->get();
+        //dd($status);
+        return view('orders.cart.index')->with(['carts' => $carts,'status' => $status,'payments'=>$payments]);
     }
 }

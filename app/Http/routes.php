@@ -40,10 +40,6 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
 });
 /** AdminSide **/
 
-Route::get('orders',[
-    'as' => 'order_path',
-    'uses' => 'OrderController@index'
-]);
 
 /** UserSide **/
 Route::resource('menu', 'CategoriesUserController',
@@ -51,5 +47,10 @@ Route::resource('menu', 'CategoriesUserController',
 ]);
 
 Route::resource('cart', 'CartUserController',
-    ['only' => ['index']
+    ['only' => ['index','store']
 ]);
+Route::get('orders',[
+    'as' => 'order_path',
+    'uses' => 'OrderController@index'
+]);
+
