@@ -8,19 +8,20 @@
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>
         </a>
-
-        <a data-route="users" href="/">
+        @if(Auth::user()->type > 1)
+        <a data-route="users" href={{ url('/dashboard') }}>
             <iron-icon icon="account-circle"></iron-icon>
-            <span>{!! Auth::user()->name !!}</span>
+            <span>{!! Auth::user()->name !!}/Admin</span>
         </a>
+        @endif
 
-        <a data-route="contact" href="/contact">
-            <iron-icon icon="mail"></iron-icon>
-            <span>Contact</span>
+        <a data-route="admin" href={{ url('/cart') }}>
+            <iron-icon icon="shopping-cart"></iron-icon>
+            <span>Orders</span>
         </a>
 
         <a data-route="logout" href={{ url('/auth/logout') }}>
-            <iron-icon icon="warning"></iron-icon>
+            <iron-icon icon="settings-power"></iron-icon>
             <span>Log-out</span>
         </a>
     </paper-menu>

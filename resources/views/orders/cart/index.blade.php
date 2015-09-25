@@ -4,9 +4,11 @@
     @if($carts != null)
         <div align="center">
             <div style="padding: 10px">
-                <paper-card heading ="Cart" elevation="3">
+                <div align="center">
+                    <h2>CART</h2>
+                </div>
                     @foreach($carts as $cart)
-                        <paper-card heading="Número de orden: {!! $cart->id !!}">
+                        <paper-card heading="Número de orden: {!! $cart->id !!}" style="padding: 5px;">
                             <div class="card-content">
                                 Nombre del platillo{!! \App\Dish::find($cart->dish_id)->name !!}
                             </div>
@@ -28,8 +30,8 @@
                                 {!! $cart->comments !!}
                             </div>
                         </paper-card>
+
                     @endforeach
-                </paper-card>
             </div>
         </div>
     @elseif(!$carts)

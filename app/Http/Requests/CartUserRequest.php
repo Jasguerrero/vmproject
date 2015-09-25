@@ -26,8 +26,7 @@ class CartUserRequest extends Request
         return [
             'dish_id' => 'required|integer',
             'status_id' => 'required|integer',
-            'payment_id' => 'required|integer',
-            'comments' => 'required|string'
+            'comments' => 'required_if:comments,string|string'
         ];
     }
 }

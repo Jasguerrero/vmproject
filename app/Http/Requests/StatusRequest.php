@@ -24,7 +24,7 @@ class StatusRequest extends Request
     public function rules()
     {
         return [
-            'description_es' => 'required'
+            'description_es' => 'required',
             'description_en' => 'required'
         ];
     }
