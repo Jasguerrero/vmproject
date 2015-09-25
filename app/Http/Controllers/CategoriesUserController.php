@@ -52,8 +52,9 @@ class CategoriesUserController extends Controller
      */
     public function show($id)
     {
+        $payments = DB::table('payments')->get();
         $dishes = Category::find($id);
-        return view('categories.user.show')->with('dishes', $dishes->dishes);
+        return view('categories.user.show')->with(['dishes'=>$dishes->dishes,'payments'=>$payments]);
     }
 
     /**

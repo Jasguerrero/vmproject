@@ -24,7 +24,10 @@ class CartUserRequest extends Request
     public function rules()
     {
         return [
-            'dish_id' => 'required|integer'
+            'dish_id' => 'required|integer',
+            'status_id' => 'required|integer',
+            'payment_id' => 'required|integer',
+            'comments' => 'required|string'
         ];
     }
 }

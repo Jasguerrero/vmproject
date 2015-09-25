@@ -6,46 +6,29 @@
             <div style="padding: 10px">
                 <paper-card heading ="Cart" elevation="3">
                     @foreach($carts as $cart)
-                        <paper-card heading="{!! \App\Dish::find($cart->dish_id)->name !!}">
+                        <paper-card heading="Número de orden :{!! $cart->id !!}">
+                            <div class="card-content">
+                                Nombre del platillo{!! \App\Dish::find($cart->dish_id)->name !!}
+                            </div>
                             <div class="card-content">
                                 {!! \App\Dish::find($cart->dish_id)->prep_time !!}
                             </div>
                             <div class="card-content">
-                                ${!! \App\Dish::find($cart->dish_id)->price !!}
+                                {!! \App\Dish::find($cart->dish_id)->price !!}
+                            </div>
+                            <div class="card-content">
+                                Método de pago : {!! \App\Payment::find($cart->payment_id)->description_es !!}
+                            </div>
+                            <div class="card-content">
+                                Status de la orden : {!! \App\Status::find($cart->status_id)->description_es !!}
+                            </div>
+                            <div class="card-content">
+                                Comentarios del platillos
+                                <br/>
+                                {!! $cart->comments !!}
                             </div>
                         </paper-card>
                     @endforeach
-
-                    {!! Form::open(['url' => 'orders']) !!}
-                    <div class="form-group">
-                        <paper-dropdown-menu label="Payment">
-                            <paper-menu name="payment_method" class="dropdown-content">
-                                <paper-item value="">-Selecciona un método de pago-</paper-item>
-                                @foreach($payments as $pay)
-                                    <paper-item value="{!! $pay->id !!}">{!! $pay->description_es !!}</paper-item>
-                                @endforeach
-                            </paper-menu>
-                        </paper-dropdown-menu>
-                    </div>
-                    <div class="form-group">
-                        <paper-dropdown-menu label="Estatus">
-                            <paper-menu name="status" class="dropdown-content">
-                                @foreach($status as $s)
-                                    <paper-item value="{!! $s->id !!}">{!! $s->description_es !!}</paper-item>
-                                @endforeach
-                            </paper-menu>
-                        </paper-dropdown-menu>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="comments" id="" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="hidden" name="cart_id" value="{!! $cart->id !!}"/>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::submit('Ordenar',['id' => 'add','class' => 'myButton']) !!}
-                    </div>
-                    {!! Form::close() !!}
                 </paper-card>
             </div>
         </div>

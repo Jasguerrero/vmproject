@@ -21,9 +21,7 @@ class CartUserController extends Controller
     public function index()
     {
         $carts = Auth::user()->carts()->get();
-        $status = DB::table('statuses')->get();
-        $payments = DB::table('payments')->get();
-        return view('orders.cart.index')->with(['carts' => $carts,'status' => $status,'payments'=>$payments]);
+        return view('orders.cart.index')->with('carts',$carts);
     }
 
     /**
@@ -38,10 +36,6 @@ class CartUserController extends Controller
         $newItem = new Cart($request->all());
         Auth::user()->carts()->save($newItem);
         $carts = Auth::user()->carts()->get();
-        //return view('orders.cart.index')->with('carts',$carts);
-        $status = DB::table('statuses')->get();
-        $payments = DB::table('payments')->get();
-        //dd($status);
-        return view('orders.cart.index')->with(['carts' => $carts,'status' => $status,'payments'=>$payments]);
+        return redirect('cart');
     }
 }

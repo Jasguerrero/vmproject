@@ -20,12 +20,23 @@ class CreateCartsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('no action');
+            $table->integer('status_id')->unsigned();
+            $table->foreign('status_id')
+                ->references('id')
+                ->on('Statuses')
+                ->onDelete('no action');
 
             $table->integer('dish_id')->unsigned();
             $table->foreign('dish_id')
                 ->references('id')
                 ->on('dishes')
                 ->onDelete('no action');
+            $table->integer('payment_id')->unsigned();
+            $table->foreign('payment_id')
+                ->references('id')
+                ->on('Payments')
+                ->onDelete('no action');
+            $table->text('comments');
             $table->timestamps();
         });
     }
