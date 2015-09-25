@@ -10,10 +10,10 @@
     <title>Vmenu</title>
 
 
-  
+
     <!--external css-->
     <link href="{{asset('/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
-        
+
     <!-- Custom styles for this template -->
     <link href="{{asset('/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('/css/style-responsive.css')}}" rel="stylesheet">
@@ -44,7 +44,7 @@
             <!--logo start-->
             <a href="#" class="logo"><b><img src="{{asset('img/logHI.jpeg')}}" alt="logo" class="img-rounded"> Vmenu</b></a>
             <!--logo end-->
-            
+
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
                     <li><a class="logout" href="{{url('/auth/logout')}}">Salir</a></li>
@@ -54,21 +54,21 @@
         </header>
 
       <!--header end-->
-      
+
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-   
+
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-              
+
                   <p class="centered"><a href="#"><img src="{{asset('/img/default-img.png')}}" class="img-circle" width="100"></a></p>
-                  
+
                   <h5 class="centered">{!! Auth::user()->name !!}</h5>
-                    
+
                  <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="glyphicon glyphicon-tasks"></i>
@@ -88,7 +88,7 @@
                       <ul class="sub">
                           <li>{!!link_to('dishes',' Ver',['class'=>'glyphicon glyphicon-eye-open'])!!}</li>
                           <li>{!!link_to('dishes/create',' Añadir',['class'=>'glyphicon glyphicon-plus'])!!}</li>
-                      
+
                       </ul>
                   </li>
 
@@ -100,7 +100,7 @@
                       <ul class="sub">
                          <li>{!!link_to('statuses',' Ver',['class'=>'glyphicon glyphicon-eye-open'])!!}</li>
                           <li>{!!link_to('statuses/create',' Añadir',['class'=>'glyphicon glyphicon-plus'])!!}</li>
-                      
+
                       </ul>
                   </li>
 
@@ -112,10 +112,10 @@
                     <ul class="sub">
                            <li>{!!link_to('payments',' Ver',['class'=>'glyphicon glyphicon-eye-open'])!!}</li>
                           <li>{!!link_to('payments/create',' Añadir',['class'=>'glyphicon glyphicon-plus'])!!}</li>
-                      
+
                       </ul>
                   </li>
-                 
+
 
               </ul>
               <!-- sidebar menu end-->
@@ -131,13 +131,13 @@
 
       <section id="main-content">
           <section class="wrapper site-min-height">
-         
+
          <div class="container-fluid">
            @yield('content')
          </div>
-         
-         
-      
+
+
+
         </section>
 
       </section><!-- /MAIN CONTENT -->
@@ -171,7 +171,7 @@
     <script src="{{asset('/js/common-scripts.js')}}"></script>
 
     <!--script for this page-->
-    
+    @yield('extra_scripts')
 
 
   </body>

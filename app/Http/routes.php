@@ -37,6 +37,11 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'],function(){
     Route::resource('categories', 'CategoryController');
     Route::resource('statuses', 'StatusController');
     Route::resource('payments', 'PaymentController');
+    Route::resource('carts', 'CartController');
+});
+
+Route::group(['middleware' => 'cors'], function(){
+    Route::get('carts/fetch','CartController@fetch');
 });
 /** AdminSide **/
 
@@ -53,4 +58,3 @@ Route::get('orders',[
     'as' => 'order_path',
     'uses' => 'OrderController@index'
 ]);
-
