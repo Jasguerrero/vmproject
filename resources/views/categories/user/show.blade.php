@@ -29,20 +29,20 @@
                                 {!! Form::input('hidden','status_id','1',['id'=>'status_id','class' => 'form-control']) !!}
                             </div>
                             <br>
-                            <div class="form group">
-                                <select name="payment_id" id="payment_id" style="width: 100%;"
-                                         class="form-control input-sm">
-                                    <option value="">- Seleciona una Categoria -</option>
-                                    @foreach($payments as $pay)
-                                        <option value="{!! $pay->id !!}">{!! $pay->description_es !!}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <br/>
+                            <div align="right">
+                            <paper-dropdown-menu label="Forma de pago">
+                                <paper-menu class="dropdown-content">
+                                    <paper-item>Tarjeta de credito</paper-item>
+                                    <paper-item>Efectivo</paper-item>
+                                    <paper-item>Cargo a la habitacion</paper-item>
+                                </paper-menu>
+                            </paper-dropdown-menu>
+                                </div>
                             <div class="form-group" align="left">
                                 <paper-input name="comments" class="form-control" label="Comentarios/Comments">
                                 </paper-input>
                             </div>
+                            <br>
                             <div class="form-group">
                                 {!! Form::submit('Ordernar',['id' => 'add','class' => 'myButton']) !!}
                             </div>

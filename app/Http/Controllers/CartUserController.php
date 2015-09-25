@@ -34,6 +34,7 @@ class CartUserController extends Controller
     {
 
         $newItem = new Cart($request->all());
+        $newItem->payment_id = 1;
         Auth::user()->carts()->save($newItem);
         $carts = Auth::user()->carts()->get();
         return redirect('cart');

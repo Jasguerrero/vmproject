@@ -19,9 +19,6 @@
                                 {!! \App\Dish::find($cart->dish_id)->price !!}
                             </div>
                             <div class="card-content">
-                                Método de pago : {!! \App\Payment::find($cart->payment_id)->description_es !!}
-                            </div>
-                            <div class="card-content">
                                 Status de la orden : {!! \App\Status::find($cart->status_id)->description_es !!}
                             </div>
                             <div class="card-content">
