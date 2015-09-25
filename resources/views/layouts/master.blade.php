@@ -38,6 +38,7 @@
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href={{URL::asset('style/main.css')}}>
+    <link rel="stylesheet" href={{URL::asset('css/app.css')}}>
 
 </head>
 <body unresolved class="fullbleed layout vertical">
