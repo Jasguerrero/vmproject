@@ -13,6 +13,7 @@ class DishTableSeeder extends Seeder
     public function run()
     {
         Dish::create([
+            'user_id' => 51,
             'name' => 'Desayuno Continental / Continental Breakfast',
             'description_en' => 'Café, té o leche; jugo o fruta; pan de dulce o tostado con mantequilla.',
             'description_es' => 'Coffee, tea or milk; juice or fruit; sweet bread or toast with butter.',
@@ -22,6 +23,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Plato de fruta de la estación / Fruit in season',
             'description_en' => 'Sandía, melón, papaya y piña.',
             'description_es' => 'Watermelon, melon, papaya and pineapple.',
@@ -31,6 +33,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Huevos al gusto / Eggs any style',
             'description_en' => 'Dos huevos al gusto con jamón, tocino o salchicha, acompañados de frijoles tortillas.',
             'description_es' => 'Two eggs any style with ham, bacon or sausage, served with beans and corn tortillas.',
@@ -40,6 +43,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Champiñones al ajillo / Garlic mushrooms',
             'description_en' => 'Combinación de champiñón natural y chile guajillo, con un toque de vino blanco.',
             'description_es' => 'A mix of fresh mushrooms, garlic and guajillo peppers with a touch of white wine.',
@@ -50,6 +54,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Ensalada de aguacate y queso panela / Avocado and panela cheese salad',
             'description_en' => 'Tradicional mezcla de lechugas.',
             'description_es' => 'Traditional mixed greens topped with avocado and fresh cheese.',
@@ -59,6 +64,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Refrescos / Soft drinks',
             'price' => '29.00',
             'measure' => '(250 ml.)',
@@ -66,6 +72,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Pastelería surtida / Assorted cakes',
             'price' => '49.00',
             'prep_time' => '10 mins.',
@@ -73,6 +80,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Ensalada tailandesa / Thai salad',
             'description_en' => 'Delicious mixed vegetables salad and sesame flavored beef filet.',
             'description_es' => 'Deliciosa ensalada con vegetales mixtos y filete de res aromatizada con ajonjolí.',
@@ -82,6 +90,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Sopa azteca / Azteca soup',
             'description_en' => 'Traditional tortilla soup made with guajillo peppers, with a side of avocado, cheese and bacon.',
             'description_es' => 'Tradicional caldo hecho de tortilla combinado con chile guajillo, con una guarnición de aguacate, queso y tocino.',
@@ -91,6 +100,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Fettuccini con jamón serrano y espárragos / Fettuccini with Serrano ham and asparagus',
             'description_en' => 'Delicious pasta in Alfredo sauce combined with Serrano ham, asparagus and Parmesan cheese.',
             'description_es' => 'Deliciosa pasta en salsa Alfredo combinada con jamón serrano, espárragos y queso parmesano.',
@@ -100,6 +110,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Camarones termidor / Termidor shrimp',
             'description_en' => 'Shrimp bathed in a delicious au gratin sauce.',
             'description_es' => 'Camarones de línea U-12 bañados y gratinados en una exquisita salsa.',
@@ -110,6 +121,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Milanesa de pollo / Crispy chicken',
             'description_en' => 'Breaded chicken breast garnished with mixed salad and French fries.',
             'description_es' => 'Con una guarnición de ensalada mixta y papas a la francesa.',
@@ -120,6 +132,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Club sándwich',
             'description_en' => 'Traditional club sandwich stuffed with grilled chicken breast, bacon, ham and cheese, served with French fries and salad.',
             'description_es' => 'Tradicional club sándwich relleno de pechuga de pollo asada, tocino, jamón y queso, acompañado de papas a la francesa y ensalada.',
@@ -129,6 +142,7 @@ class DishTableSeeder extends Seeder
         ]);
 
         Dish::create([
+            'user_id' => 51,
             'name' => 'Tacos Miguelito / Miguelito’s tacos',
             'description_en' => 'Delicious steak tacos in a corn tortilla. Served with refried beans and guacamole.',
             'description_es' => 'Ricos tacos de filete de res en tortilla de maíz acompañados de frijoles refritos y guacamole.',
