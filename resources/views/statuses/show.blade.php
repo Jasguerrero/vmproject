@@ -2,7 +2,7 @@
 
 
 @section('content')
-   
+
     @if($status != null)
         <h1 class="page-heading">Número de Status: {!! $status->id !!}</h1>
         <hr/>
@@ -18,7 +18,7 @@
                          <hr/>
                         <h5>Fecha de Creación : {!! $status->created_at->format('Y-m-d') !!}</h5>
                         <hr/>
-                        
+
                        <div class="row">
             <div class="col-lg-6">
                 {!! link_to('statuses/' .$status->id. '/edit', 'Update',array('class' => 'btn btn-default btn-success center-block')) !!}
@@ -30,7 +30,7 @@
 
                     {!! Form::close() !!}
                 </div>
-            </div>   
+            </div>
                    </div>
                 </div>
             </div>
@@ -42,8 +42,8 @@
     @elseif(!$status)
         <div class="row">
             <div class="col-lg-12">
-                <div class="jumbotron">
-                    <h1 class="page-heading">El status no está disponible</h1>
+                <div class="jumbotron text-center">
+                    <h1 class="page-heading">El status no está disponible.</h1>
                 </div>
             </div>
         </div>

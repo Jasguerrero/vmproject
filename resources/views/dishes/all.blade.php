@@ -3,29 +3,33 @@
 
 @section('content')
     @if($dishes != null)
-        <h1 class="page-heading">Platillos</h1>
-        <hr/>
+        <h1 class="page-header">Platillos</h1>
+
         {!! Form::open(['method' => 'GET', 'action' => 'SearchDishController@search','class'=>'form-inline']) !!}
-        <div class="form-group">
-            {!! Form::label('search','Categories:')!!}
-            <select name="search" id="search" class="form-control input-sm">
+            <div class="form-group">
+                {!! Form::label('search','Categorias:')!!}
+                <select name="search" id="search" class="form-control input-sm">
                 <option value="">- Seleciona una Categoria -</option>
                 @foreach($categories as $category)
                     <option value="{!! $category->id !!}">{!! $category->description_es !!}</option>
                 @endforeach
-            </select>
-        </div>
-        <div class="form-group">
-            {!! Form::submit('Filtrar',['class' => 'btn btn-success form-control']) !!}
-        </div>
-        {!! Form::close() !!}
+                </select>
+            </div>
 
-        <br/>
+            <div class="form-group">
+                {!! Form::submit('Filtrar',['class' => 'btn btn-success form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                <a href="{{ URL::previous() }}" class="btn btn-primary">Mostrar todos</a>
+            </div>
+        {!! Form::close() !!}
+        <br>
         <ul id="dishes" class="list-group">
             @foreach($dishes as $dish)
                 <li class="list-group-item">
                     <span class="badge bg-success">{!! link_to('dishes/' . $dish->id ,'Ver',null) !!}</span>
-                    Nombre del platillo : {!! $dish->name !!} - Categoria : {!! \App\Category::find($dish->category_id)->description_es !!}
+                    {!! $dish->name !!}
                 </li>
             @endforeach
         </ul>

@@ -8,9 +8,8 @@
              <div class="form-area">
               {!! Form::model($status,['method' => 'PATCH','action' => ['StatusController@update',$status->id]]) !!}
              <br style="clear:both">
-            <h1 class="page-heading">Editar Status</h1>
-            <hr/>
-           
+            <h1 class="page-header text-center">Editar Status</h1>
+
             <div class="form-group">
                 {!! Form::label('description_es','Descripción Español:')!!}
                 {!! Form::input('text','description_es',null,['class' => 'form-control']) !!}
