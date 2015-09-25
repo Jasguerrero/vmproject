@@ -7,7 +7,8 @@ use Carbon\Carbon;
 class Dish extends Model
 {
     protected $table = 'dishes';
-    protected $fillable = ['name','category_id', 'description_es','description_en', 'img_url','price','measure','prep_time'];
+    protected $fillable = ['name','category_id', 'description_es',
+        'description_en', 'img_url','price','measure','prep_time',''];
 
     /* Mutador de imagenes */
     public function setImgUrlAttribute($img_url)

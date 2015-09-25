@@ -11,7 +11,7 @@ class Order extends Model
 
     public function owner()
     {
-        return $this -> belongsTo('App\Guest');
+        return $this -> belongsTo('App\User');
     }
     public function dishes()
     {
