@@ -51,5 +51,6 @@ Route::resource('menu', 'CategoriesUserController',
 ]);
 
 Route::resource('cart', 'CartUserController',
-    ['only' => ['index']
+    ['only' => ['index','store']
 ]);
+

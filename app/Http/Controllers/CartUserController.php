@@ -21,14 +21,23 @@ class CartUserController extends Controller
 
     public function index()
     {
-
-        return view('orders.cart.index');
+        $cartItems = Auth::user()->carts()->get();
+        return view('orders.cart.index')->with('carItems',$cartItems);
     }
 
+    /**
+     * Store a newly created resource in storage.
+     * Guarda nuestra nueva categoria en la base de datos
+     * @param    $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(CartUserRequest $request)
     {
-        $newitem = new Cart($request);
-        Auth::user()->carts()->save($newitem);
+
+        $newItem = new Cart($request->all());
+        //dd(Auth::user()->carts()->get());
+        Auth::user()->carts()->save($newItem);
+        dd(Auth::user()->carts()->get());
         return view('orders.cart.index');
     }
 }
