@@ -6,10 +6,9 @@ use App\Cart;
 use App\Http\Requests\CartUserRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
+
 use Illuminate\Support\Facades\Auth;
-use App\Category;
+
 use Illuminate\Support\Facades\DB;
 
 class CartUserController extends Controller
@@ -35,9 +34,12 @@ class CartUserController extends Controller
     {
 
         $newItem = new Cart($request->all());
-        //dd(Auth::user()->carts()->get());
         Auth::user()->carts()->save($newItem);
-        dd(Auth::user()->carts()->get());
-        return view('orders.cart.index');
+        $carts = Auth::user()->carts()->get();
+        //return view('orders.cart.index')->with('carts',$carts);
+        $status = DB::table('statuses')->get();
+        $payments = DB::table('payments')->get();
+        //dd($status);
+        return view('orders.cart.index')->with(['carts' => $carts,'status' => $status,'payments'=>$payments]);
     }
 }

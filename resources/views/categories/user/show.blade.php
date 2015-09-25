@@ -19,15 +19,9 @@
                         <div class="card-content" style="font-size: small;" id="my-price" align="right">
                             ${!! $dish->price !!}
                         </div>
-                        <div align="left" style="padding-left: 20px; padding-right: 20px;" >
-                            <paper-input label="Comentarios/Comments" name="comment"></paper-input>
-                        </div>
                         <br>
                         <div align="left" style="padding-left: 20px;">Cantidad/Quantity</div>
-                        <div style="padding-left: 20px; padding-right: 20px">
-                            <paper-slider id="my-card" min="1" max="10" value="1"
-                                          pin="true" editable="true" name="qty"></paper-slider>
-                        </div>
+
                         <div class="card-actions">
                             {!! Form::open(['url' => 'cart']) !!}
                             <div class="form-group">

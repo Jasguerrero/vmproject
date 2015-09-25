@@ -1,52 +1,66 @@
 @extends('layouts.master')
 
 @section('content')
-    <div align="center">
-        <div style="padding: 10px">
-            <paper-card heading ="Cart" elevation="3">
-                <table class="card-content">
-                <thead>
-                <div style="padding-left: 20px;">
-                <tr>
-                    <th style="padding-right: 10px;">Nombre</th>
-                    <th style="padding-right: 10px;">Cantidad</th>
-                    <th style="padding-right: 10px;">Tiempo de espera</th>
-                    <th style="padding-right: 10px;">Precio</th>
-                </tr>
+    @if($carts != null)
+        <div align="center">
+            <div style="padding: 10px">
+                <paper-card heading ="Cart" elevation="3">
+                    <table class="card-content">
+                        <thead>
+                        <div style="padding-left: 20px;">
+                            <tr>
+                                <th style="padding-right: 10px;">Nombre</th>
+                                <th style="padding-right: 10px;">Tiempo de espera</th>
+                                <th style="padding-right: 10px;">Precio</th>
+                            </tr>
+                        </div>
+                        </thead>
+
+                        <tbody>
+                        @foreach($carts as $cart)
+                            <tr>
+                                <td style="padding-right: 10px;">{!! \App\Dish::find($cart->dish_id)->name !!}</td>
+                                <td style="padding-right: 10px;">{!! \App\Dish::find($cart->dish_id)->prep_time !!}</td>
+                                <td style="padding-right: 10px;">{!! \App\Dish::find($cart->dish_id)->price !!}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
+                    {!! Form::open(['url' => 'orders']) !!}
+                    <div class="form-group">
+                        <paper-dropdown-menu label="Payment">
+                            <paper-menu name="payment_method" class="dropdown-content">
+                                <paper-item value="">-Selecciona un método de pago-</paper-item>
+                                @foreach($payments as $pay)
+                                    <paper-item value="{!! $pay->id !!}">{!! $pay->description_es !!}</paper-item>
+                                @endforeach
+                            </paper-menu>
+                        </paper-dropdown-menu>
                     </div>
-                </thead>
-
-                <tbody>
-                <tr>
-                    <td style="padding-right: 10px;">Carne</td>
-                    <td style="padding-right: 10px;">1</td>
-                    <td style="padding-right: 10px;">20 min</td>
-                    <td style="padding-right: 10px;">120.00</td>
-                </tr>
-
-                <tr>
-                    <td style="padding-right: 10px;">Sandwich</td>
-                    <td style="padding-right: 10px;">1</td>
-                    <td style="padding-right: 10px;">15 min</td>
-                    <td style="padding-right: 10px;">80.00</td>
-                </tr>
-
-                <tr>
-                    <td style="padding-right: 10px;">Smoothie/Smoothie</td>
-                    <td style="padding-right: 10px;">2</td>
-                    <td style="padding-right: 10px;">5 min</td>
-                    <td style="padding-right: 10px;">30.00</td>
-                </tr>
-                </tbody>
-                </table>
-                <div align="left" style="padding-left: 20px; padding-right: 20px;" >
-                    <paper-input label="Comentarios/Comments" name="comment"></paper-input>
-                </div>
-                <br>
-                <div class="card-actions">
-                    <paper-button raised id="my-order-button">Ordenar/Order</paper-button>
-                </div>
-            </paper-card>
+                    <div class="form-group">
+                        <paper-dropdown-menu label="Estatus">
+                            <paper-menu name="status" class="dropdown-content">
+                                @foreach($status as $s)
+                                <paper-item value="{!! $s->id !!}">{!! $s->description_es !!}</paper-item>
+                                @endforeach
+                            </paper-menu>
+                        </paper-dropdown-menu>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="comments" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="cart_id" value="{!! $cart->id !!}"/>
+                    </div>
+                    <div class="form-group">
+                        {!! Form::submit('Ordenar',['id' => 'add','class' => 'myButton']) !!}
+                    </div>
+                    {!! Form::close() !!}
+                </paper-card>
+            </div>
         </div>
-    </div>
+    @elseif(!$carts)
+        <h1>  No tiene ningún platillo agregado !</h1>
+    @endif
 @endsection
