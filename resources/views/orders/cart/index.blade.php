@@ -6,7 +6,7 @@
             <div style="padding: 10px">
                 <paper-card heading ="Cart" elevation="3">
                     @foreach($carts as $cart)
-                        <paper-card heading="Número de orden :{!! $cart->id !!}">
+                        <paper-card heading="Número de orden: {!! $cart->id !!}">
                             <div class="card-content">
                                 Nombre del platillo{!! \App\Dish::find($cart->dish_id)->name !!}
                             </div>

@@ -20,7 +20,6 @@
                             ${!! $dish->price !!}
                         </div>
                         <br>
-                        <div align="left" style="padding-left: 20px;">Cantidad/Quantity</div>
 
                         <div class="card-actions">
                             @include('partials.errors')
@@ -29,8 +28,10 @@
                                 {!! Form::input('hidden','dish_id',$dish->id,['id'=>'dish_id','class' => 'form-control']) !!}
                                 {!! Form::input('hidden','status_id','1',['id'=>'status_id','class' => 'form-control']) !!}
                             </div>
+                            <br>
                             <div class="form group">
-                                <select name="payment_id" id="payment_id" class="form-control input-sm">
+                                <select name="payment_id" id="payment_id" style="width: 100%;"
+                                         class="form-control input-sm">
                                     <option value="">- Seleciona una Categoria -</option>
                                     @foreach($payments as $pay)
                                         <option value="{!! $pay->id !!}">{!! $pay->description_es !!}</option>
@@ -38,8 +39,9 @@
                                 </select>
                             </div>
                             <br/>
-                            <div class="form-group">
-                                {!! Form::textarea('comments',null,['class' => 'form-control','placeholder'=>'Comentarios']) !!}
+                            <div class="form-group" align="left">
+                                <paper-input name="comments" class="form-control" label="Comentarios/Comments">
+                                </paper-input>
                             </div>
                             <div class="form-group">
                                 {!! Form::submit('Ordernar',['id' => 'add','class' => 'myButton']) !!}
