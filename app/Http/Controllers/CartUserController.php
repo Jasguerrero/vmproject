@@ -20,8 +20,10 @@ class CartUserController extends Controller
 
     public function index()
     {
-        $cartItems = Auth::user()->carts()->get();
-        return view('orders.cart.index')->with('carItems',$cartItems);
+        $carts = Auth::user()->carts()->get();
+        $status = DB::table('statuses')->get();
+        $payments = DB::table('payments')->get();
+        return view('orders.cart.index')->with(['carts' => $carts,'status' => $status,'payments'=>$payments]);
     }
 
     /**

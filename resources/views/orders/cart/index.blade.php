@@ -5,27 +5,16 @@
         <div align="center">
             <div style="padding: 10px">
                 <paper-card heading ="Cart" elevation="3">
-                    <table class="card-content">
-                        <thead>
-                        <div style="padding-left: 20px;">
-                            <tr>
-                                <th style="padding-right: 10px;">Nombre</th>
-                                <th style="padding-right: 10px;">Tiempo de espera</th>
-                                <th style="padding-right: 10px;">Precio</th>
-                            </tr>
-                        </div>
-                        </thead>
-
-                        <tbody>
-                        @foreach($carts as $cart)
-                            <tr>
-                                <td style="padding-right: 10px;">{!! \App\Dish::find($cart->dish_id)->name !!}</td>
-                                <td style="padding-right: 10px;">{!! \App\Dish::find($cart->dish_id)->prep_time !!}</td>
-                                <td style="padding-right: 10px;">{!! \App\Dish::find($cart->dish_id)->price !!}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                    @foreach($carts as $cart)
+                        <paper-card heading="{!! \App\Dish::find($cart->dish_id)->name !!}">
+                            <div class="card-content">
+                                {!! \App\Dish::find($cart->dish_id)->prep_time !!}
+                            </div>
+                            <div class="card-content">
+                                ${!! \App\Dish::find($cart->dish_id)->price !!}
+                            </div>
+                        </paper-card>
+                    @endforeach
 
                     {!! Form::open(['url' => 'orders']) !!}
                     <div class="form-group">
@@ -42,7 +31,7 @@
                         <paper-dropdown-menu label="Estatus">
                             <paper-menu name="status" class="dropdown-content">
                                 @foreach($status as $s)
-                                <paper-item value="{!! $s->id !!}">{!! $s->description_es !!}</paper-item>
+                                    <paper-item value="{!! $s->id !!}">{!! $s->description_es !!}</paper-item>
                                 @endforeach
                             </paper-menu>
                         </paper-dropdown-menu>
