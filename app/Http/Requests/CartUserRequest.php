@@ -13,7 +13,7 @@ class CartUserRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class CartUserRequest extends Request
     public function rules()
     {
         return [
-            //
+            'dish_id' => 'required|integer'
         ];
     }
 }
