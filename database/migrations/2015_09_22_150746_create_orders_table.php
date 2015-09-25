@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('payment_id')->unsigned();
             $table->integer('status_id')->unsigned();
+            $table->integer('cart_id')->unsigned();
             $table->text('comments');
             $table->timestamps();
 
@@ -35,6 +36,10 @@ class CreateOrdersTable extends Migration
                   ->references('id')
                   ->on('Statuses')
                   ->onDelete('no action');
+            $table->foreign('cart_id')
+                ->references('id')
+                ->on('Carts')
+                ->onDelete('no action');
         });
     }
 

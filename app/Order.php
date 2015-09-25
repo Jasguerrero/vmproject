@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $table = 'orders';
-    protected $fillable = ['dish_id','comments', 'status', 'payment_method'];
+    protected $fillable = ['cart_id','comments', 'status', 'payment_method'];
 
     public function owner()
     {
