@@ -116,6 +116,16 @@
                       </ul>
                   </li>
 
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="glyphicon glyphicon-shopping-cart"></i>
+                          <span>Ordenes</span>
+                      </a>
+                      <ul class="sub">
+                          <li>{!!link_to('carts',' Ver',['class'=>'glyphicon glyphicon-eye-open'])!!}</li>
+                      </ul>
+                  </li>
+
 
               </ul>
               <!-- sidebar menu end-->
@@ -164,7 +174,6 @@
     <script class="include" type="text/javascript" src="{{asset('/js/jquery.dcjqaccordion.2.7.js')}}"></script>
     <script src="{{asset('/js/jquery.scrollTo.min.js')}}"></script>
     <script src="{{asset('/js/jquery.nicescroll.js')}}" type="text/javascript"></script>
-    <script src="{{asset('/js/form.js')}}" type="text/javascript"></script>
 
     <script src="{{asset('/js/app.js')}}"></script>
     <!--common script for all pages-->
