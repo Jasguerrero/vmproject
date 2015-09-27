@@ -62,7 +62,7 @@
 
                 <!-- Application name -->
                 <div class="middle middle-container center horizontal layout">
-                    <div class="app-name">Holiday Inn</div>
+                    <div class="app-name">Hotel</div>
                 </div>
 
                 <!-- Application sub title -->

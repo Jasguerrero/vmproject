@@ -42,6 +42,11 @@
                                 <paper-input name="comments" class="form-control" label="Comentarios/Comments">
                                 </paper-input>
                             </div>
+                            <div align="left" style="padding-left: 20px;">Cantidad/Quantity</div>
+                            <div style="padding-left: 25px; padding-right: 25px">
+                                <paper-slider id="my-card" min="1" max="10" value="1"
+                                              pin="true" editable="true" name="qty"></paper-slider>
+                            </div>
                             <br>
                             <div class="form-group">
                                 {!! Form::submit('Ordernar',['id' => 'add','class' => 'myButton']) !!}

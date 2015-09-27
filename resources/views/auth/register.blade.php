@@ -4,7 +4,7 @@
 	<br><br>
 	<div align="center">
 	<paper-card elevation="3"
-				image={{URL::asset('images/logos/logo.jpg')}}>
+				image={{URL::asset('images/logos/hotel.png')}}>
 		<div class="card-content" align="left">
 			@include('partials.errors')
 			<h3>Register</h3>
